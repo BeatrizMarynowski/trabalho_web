@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #009688, #00695c);
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  transition: 0.3s;
+}
+h1 {
+  text-align: center;
+  color: #00695c;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+.campo {
+  margin-bottom: 16px;
+}
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+  font-size: 0.95rem;
+}
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 150, 136, 0.3);
+  border-color: #009688;
+}   
+input.correto {
+    border-color: #2e7d32;
+    background-color: #f4fff6;
+}
+input.erro {
+  border-color: #d32f2f;
+  background-color: #fff7f7;
+}
+.mensagem {
+  display: none;
+  margin-top: 5px;
+  font-size: 0.82rem;
+  color: #d32f2f;
+}
+.mensagem.visivel {
+  display: block;
+}
+#mensagemFinal {
+  display: none;
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+#mensagemFinal.sucesso {
+  display: block;
+  color: #1b5e20;
+  background-color: #e8f5e9;
+  border: 1px solid #81c784;
+}
+#mensagemFinal.erro-final {
+  display: block;
+  color: #b71c1c;
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+}
+input[type="file"] {
+  border: 1px dashed #aaa;
+  background-color: #fafafa;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+input[type="file"]:hover {
+  background-color: #f0f0f0;
+}
+input[type="submit"] {
+  background-color: #009688;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 12px;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  margin-top: 4px;
+}
+input[type="submit"]:hover {
+  background-color: #00796b;
+  transform: translateY(-1px);
+}
+small {
+  display: block;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+  margin-top: 10px;
+}
+@media (max-width: 480px) {
+  form {
+    padding: 20px;
+    max-width: 95%;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  input {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}

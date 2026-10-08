@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Cadastro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/login/estilo.css" rel="stylesheet" />
+</head>
+
+<body>
+  <form id="formCadastro" action="#" method="post" enctype="multipart/form-data" novalidate>
+    <h1>Cadastro</h1>
+
+    <div id="mensagemFinal"></div>
+
+    <div class="campo">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+      <span class="mensagem" id="erro-nome"></span>
+    </div>
+
+    <div class="campo">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+      <span class="mensagem" id="erro-email"></span>
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres">
+      <span class="mensagem" id="erro-senha"></span>
+    </div>
+
+    <div class="campo">
+      <label for="telefone">Telefone:</label>
+      <input 
+        type="tel" 
+        id="telefone" 
+        name="telefone" 
+        placeholder="(99) 99999-9999"
+      >
+      <span class="mensagem" id="erro-telefone"></span>
+    </div>
+
+    <!-- Campo CREFITO corrigido com o Select de Tipo do lado -->
+    <div class="campo">
+      <label for="crefito">CREFITO:</label>
+      <div style="display: flex; gap: 8px;">
+        <input 
+          type="text" 
+          id="crefito" 
+          name="crefito" 
+          placeholder="Ex: 123456" 
+          maxlength="6"
+        >
+        <select id="tipoCrefito" name="tipoCrefito">
+          <option value="F">F (Fisioterapia)</option>
+          <option value="TO">TO (Terapia Ocupacional)</option>
+        </select>
+      </div>
+      <span class="mensagem" id="erro-crefito"></span>
+    </div>
+
+    <input type="submit" value="Enviar">
+    <small>Seus dados estão protegidos de acordo com a LGPD</small>
+  </form>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
