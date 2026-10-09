@@ -1,0 +1,130 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 16px 5%;
+}
+
+nav {
+    width: min(1180px, 100%);
+    min-height: 68px;
+    margin: 0 auto;
+    padding: 0 12px 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 30px rgba(38, 23, 42, 0.07);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+/*fonte*/
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: bold;
+/*tamanho fonte*/
+    font-size: 18px;
+}
+
+.logo-simbolo {
+/*ver se da para deixar responsivo*/
+    width: 37px;
+    height: 37px;
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    background: linear-gradient(135deg, var(--rosa), var(--roxo));
+    box-shadow: 0 7px 17px rgba(191, 95, 125, 0.25);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    /*ver se da para deixar responsivo*/
+    gap: 6px;
+}
+
+.link-nav {
+    position: relative;
+    padding: 10px 15px;
+    color: #625e65;
+/*tamanho fonte*/
+    font-size: 14px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.link-nav::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--rosa);
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: var(--transition);
+}
+
+.link-nav:hover::after{
+    transform: scaleX(1);
+}
+
+.nav-login {
+    margin-left: 10px;
+    padding: 11px 20px;
+
+    color: var(--branco);
+    background: var(--roxo);
+
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.nav-login:hover {
+    background: var(--roxo-escuro);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(116, 77, 128, 0.25);
+}
+
+.menu-botao {
+    display: none;
+    width: 43px;
+    height: 43px;
+
+    border: 0;
+    border-radius: 12px;
+    background: var(--fundo-roxo);
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-botao span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--roxo);
+    transition: var(--transition);
+}

@@ -1,0 +1,429 @@
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        gap: 20px;
+    }
+
+    .hero-content {
+        width: 55%;
+    }
+
+    .hero-visual {
+        width: 45%;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 5vw, 55px);
+    }
+
+    .circle-back {
+        width: 350px;
+        height: 350px;
+    }
+
+    .main-visual-card {
+        width: 330px;
+    }
+
+    .floating-card-top {
+        right: -5%;
+    }
+
+    .floating-card-bottom {
+        left: -5%;
+    }
+
+    .about-section {
+        gap: 50px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-content > p {
+        order: 3;
+        grid-column: 1 / -1;
+    }
+
+    .footer-links {
+        justify-content: flex-end;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+========================================================= */
+
+@media (max-width: 760px) {
+
+    html {
+        scroll-padding-top: 80px;
+    }
+
+    .header {
+        padding: 10px 4%;
+    }
+
+    .navbar {
+        min-height: 61px;
+        padding-left: 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .logo-mark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .menu-botao {
+        display: flex;
+    }
+
+    .menu-botao.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-botao.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-botao.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+
+        padding: 10px;
+
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(116, 77, 128, 0.10);
+        border-radius: 17px;
+
+        box-shadow: var(--sombra);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: var(--transition);
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-link {
+        padding: 12px 14px;
+        border-radius: 9px;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--fundo-roxo);
+    }
+
+    .nav-login {
+        margin: 5px 0 0;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+
+        padding: 125px 6% 70px;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-badge {
+        margin: 0 auto 20px;
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 11vw, 53px);
+        line-height: 1.08;
+    }
+
+    .hero h1 span {
+        display: block;
+    }
+
+    .hero-description {
+        max-width: 510px;
+        margin: 0 auto 28px;
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .botao {
+        min-height: 48px;
+        font-size: 12px;
+    }
+
+    .hero-info {
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .info-item {
+        font-size: 10px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        min-height: 410px;
+        margin-top: 15px;
+    }
+
+    .circle-back {
+        width: 310px;
+        height: 310px;
+    }
+
+    .main-visual-card {
+        width: min(330px, 83%);
+        padding: 21px;
+    }
+
+    .floating-card {
+        padding: 9px 12px;
+    }
+
+    .floating-card-top {
+        top: 5%;
+        right: 2%;
+    }
+
+    .floating-card-bottom {
+        left: 1%;
+        bottom: 7%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .hero-shape-one {
+        left: -35px;
+    }
+
+    .hero-shape-two {
+        left: auto;
+        right: 12%;
+        top: 17%;
+    }
+
+    /* TESTES */
+
+    .tests-section {
+        padding: 80px 6%;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .cta-content h2 {
+        font-size: 32px;
+    }
+
+    .section-heading p {
+        font-size: 13px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .test-card {
+        min-height: 340px;
+        padding: 25px;
+    }
+
+    .card-content {
+        margin-top: 30px;
+    }
+
+    /* SOBRE */
+
+    .about-section {
+        width: 88%;
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        padding: 70px 0 80px;
+    }
+
+    .about-illustration {
+        min-height: 330px;
+        order: 2;
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    .about-content h2 {
+        max-width: 500px;
+    }
+
+    .about-content p {
+        font-size: 13px;
+    }
+
+    .about-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .about-card {
+        right: 4%;
+        bottom: 3%;
+        width: 190px;
+        min-height: 125px;
+        padding: 20px;
+    }
+
+    /* CTA */
+
+    .cta-section {
+        width: 88%;
+        min-height: 330px;
+
+        margin: 10px auto 70px;
+        padding: 45px 25px;
+        border-radius: 24px;
+    }
+
+    .cta-content p {
+        font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        padding: 45px 6% 22px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-content > p {
+        grid-column: auto;
+        order: initial;
+    }
+
+    .footer-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 6px;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .botao {
+        width: 100%;
+    }
+
+    .hero-info {
+        gap: 9px;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .circle-back {
+        width: 275px;
+        height: 275px;
+    }
+
+    .main-visual-card {
+        width: 290px;
+    }
+
+    .floating-card-top {
+        right: -3%;
+    }
+
+    .floating-card-bottom {
+        left: -3%;
+    }
+
+    .test-card {
+        min-height: 325px;
+    }
+
+    .about-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .about-card {
+        right: 0;
+    }
+}

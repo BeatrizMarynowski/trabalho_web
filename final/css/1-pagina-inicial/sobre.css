@@ -1,0 +1,45 @@
+.about-section {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+
+    min-height: 550px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+
+    padding: 100px 0;
+}
+
+.about-content h2 {
+    max-width: 520px;
+}
+
+.about-content p {
+    max-width: 500px;
+    margin: 20px 0 27px;
+
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--roxo);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.text-link span {
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.text-link:hover span {
+    transform: translateX(5px);
+}

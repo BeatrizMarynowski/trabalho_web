@@ -1,0 +1,56 @@
+@import url(navbar.css);
+@import url(hero.css);
+@import url(testes.css);
+@import url(sobre.css);
+@import url(footer.css);
+@import url(responsividade.css);
+
+:root {
+    --rosa: #BF5F7D;
+    --rosa-escuro: #a64d69;
+    --roxo: #744D80;
+    --roxo-escuro: #5f3e69;
+    --azul: #067BC2;
+    --azul-escuro: #05669f;
+    --celeste: #C7EBF0;
+
+    --preto: #000000;
+    --texto: #252329;
+    --texto-suave: #6f6b73;
+    --branco: #ffffff;
+    --fundo: #fbfafc;
+    --fundo-roxo: #f5f0f6;
+
+    --sombra: 0 18px 45px rgba(38, 23, 42, 0.10);
+    --sombra-hover: 0 25px 55px rgba(38, 23, 42, 0.17);
+
+    --radius: 24px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /*fonte*/
+    font-family: "DM Sans", sans-serif;
+    /*cores linha 47 e 48*/
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+a {
+    color: var(--texto);
+    text-decoration: none;
+}
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
