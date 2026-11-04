@@ -1,0 +1,29 @@
+nav {
+    background-color: blue;
+    width: 10vw;
+    height: 100vh;
+    padding: 20px;
+}
+
+.botao-nav{
+    background-color: chartreuse;
+    border-radius: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.icone {
+    background-color: aquamarine;
+    width: 30px;
+    height: 30px;
+}
+
+.conta {
+    background-color: aquamarine;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
