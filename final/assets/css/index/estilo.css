@@ -1,4 +1,5 @@
 :root {
+    --rosa-bebe: #FDF3F9 ;
     --rosa: #BF5F7D;
     --rosa-escuro: #a64d69;
     --roxo: #744D80;
@@ -212,7 +213,7 @@ nav {
 
     overflow: hidden;
 
-    background-image: url("../../imagens/fundo-hero.png");
+    background-image: url("../../imagens/fundo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -311,12 +312,145 @@ nav {
 
 
 /* ==================== TESTES ==================== */
+/* TESTES */
+
+.testes {
+    padding: 110px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+    background: #FAF8FB;
+}
+
+.testes-intro {
+    max-width: 480px;
+}
+
+.testes-intro h2 {
+    font-size: 39px;
+    line-height: 1.25;
+    color: #333;
+    margin: 22px 0;
+}
+
+.testes-intro h2 span {
+    color: #744D80;
+}
+
+.testes-intro > p {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.testes-destaque {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 38px;
+}
+
+.destaque-numero {
+    font-size: 48px;
+    font-weight: 600;
+    color: #BF5F7D;
+}
+
+.testes-destaque strong {
+    color: #444;
+}
+
+.testes-destaque p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.edm-card {
+    background: var(--roxo);
+    color: white;
+    padding: 38px;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(116, 77, 128, 0.12);
+}
+
+.edm-card-topo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #E5D9E9;
+}
+
+.edm-titulo {
+    margin: 35px 0 25px;
+}
+
+.edm-titulo h3 {
+    font-size: 66px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.edm-titulo p {
+    color: #E5D9E9;
+    font-size: 14px;
+}
+
+.edm-linha {
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin-bottom: 15px;
+}
+
+.edm-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.edm-area > span:first-child {
+    color: #D9C5E0;
+    font-size: 12px;
+}
+
+.edm-area p {
+    flex: 1;
+    font-size: 14px;
+}
+
+.edm-area > span:last-child {
+    color: #E5D9E9;
+}
+
+.edm-botao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: white;
+    color: #744D80;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.edm-botao:hover {
+    background: #F3EAF5;
+    transform: translateY(-3px);
+}
+
 
 .testes {
     position: relative;
     overflow: hidden;
     padding: 115px 5% 125px;
-    background: var(--branco);
+    background: var(--rosa-bebe)
 }
 
 .section-heading {
@@ -771,6 +905,24 @@ footer {
         flex-direction: column;
         gap: 6px;
         line-height: 1.5;
+    }
+    
+}
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+    .testes {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 75px 7%;
+    }
+
+    .testes-intro h2 {
+        font-size: 32px;
+    }
+
+    .edm-card {
+        padding: 28px;
     }
 }
 
