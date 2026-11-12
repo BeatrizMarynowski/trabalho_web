@@ -27,27 +27,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Kids Map</title>
+  <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
+  <link rel="stylesheet" href="../assets/css/entrada/estilo.css">
 </head>
+
 <body>
 
-    <form method="post" action="">
-        <label for="email">Seu email:</label>
-        <input type="text" name="email" id="email" required>
+    <form id="formCadastro" action="login.php" method="post" novalidate>
 
-        <label for="senha">Sua senha:</label>
-        <input type="password" name="senha" id="senha" required>
+        <div class="login-logo">
+            <img src="../assets/imagens/logo.png" alt="Logo Kids Map">
+        </div>
 
-        <button type="submit">Entrar</button>
+        <div class="login-divisor"></div>
+
+        <h1>Login</h1>
+
+        <div id="mensagemFinal"></div>
+
+        <div class="campo">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@email.com" autocomplete="email">
+            <span class="mensagem" id="erro-email"></span>
+        </div>
+
+        <div class="campo">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password">
+            <span class="mensagem" id="erro-senha"></span>
+        </div>
+
+        <input type="submit" value="Entrar">
+
+        <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
+
+        <div class="login-separador">♡</div>
+
+        <small>
+            Seus dados estão protegidos de acordo com a LGPD.
+        </small>
+
+        <small>
+            Não tem conta?
+            <a href="cadastro.html">Cadastre-se</a>
+        </small>
+
+        <small>
+            <a href="#">Esqueceu sua senha?</a>
+        </small>
+
     </form>
 
-    <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
-
-    <p>Não tem conta? <a href="cadastro.php">Cadastre-se</a></p>
+    <script src="../assets/javascript/entrada/login.js" defer></script>
 
 </body>
 </html>
