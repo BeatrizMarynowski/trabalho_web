@@ -4,7 +4,104 @@
   <meta charset="UTF-8">
   <title>Formulário de Cadastro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/2-login/estilo.css" rel="stylesheet" />
+  <link href="css/2-login/estilo.css
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Kids Map</title>
+
+    <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
+
+    <link rel="stylesheet" href="../assets/css/entrada/estilo.css">
+</head>
+
+<body>
+
+    <form id="formCadastro" action="login.php" method="post" novalidate>
+
+        <!-- LOGO -->
+        <div class="login-logo">
+
+            <img src="../assets/imagens/logo.png" alt="Logo Kids Map">
+
+            <p>Conhecer • Avaliar • Acompanhar</p>
+
+        </div>
+
+        <!-- DIVISOR -->
+        <div class="login-divisor"></div>
+
+        <!-- TÍTULO -->
+        <h1>Login</h1>
+
+        <!-- MENSAGEM FINAL -->
+        <div id="mensagemFinal"></div>
+
+        <!-- E-MAIL -->
+        <div class="campo">
+
+            <label for="email">E-mail:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="exemplo@email.com"
+                autocomplete="email"
+            >
+
+            <span class="mensagem" id="erro-email"></span>
+
+        </div>
+
+        <!-- SENHA -->
+        <div class="campo">
+
+            <label for="senha">Senha:</label>
+
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+            >
+
+            <span class="mensagem" id="erro-senha"></span>
+
+        </div>
+
+        <!-- BOTÃO -->
+        <input type="submit" value="Entrar">
+
+        <!-- DIVISOR DECORATIVO -->
+        <div class="login-separador">♡</div>
+
+        <!-- INFORMAÇÕES -->
+        <small>
+            Seus dados estão protegidos de acordo com a LGPD.
+        </small>
+
+        <small>
+            Não tem conta?
+            <a href="cadastro.html">Cadastre-se</a>
+        </small>
+
+        <small>
+            <a href="#">Esqueceu sua senha?</a>
+        </small>
+
+    </form>
+
+    <script src="../assets/javascript/2-login.js" defer></script>
+
+</body>
+</html>
+" rel="stylesheet" />
 </head>
 
 <body>
