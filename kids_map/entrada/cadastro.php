@@ -1,6 +1,9 @@
 <?php
 include '../configdb.php';
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome']) && $_POST['nome'] != "") {
+
+$erro = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['email'] != "" &&  $_POST['crefito'] != "" &&  $_POST['senha'] != "") {
     
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -16,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome']) && $_POST['nom
         header("Location: login.php");
         exit;
     } catch (Exception $e) {
-        echo "<p>Ops! Ocorreu um erro ao cadastrar. Tente novamente mais tarde.</p>";
+        $erro = "Ops! Ocorreu um erro ao cadastrar. Tente novamente mais tarde.";
     }
 }
 ?>
@@ -64,13 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome']) && $_POST['nom
     <div class="campo">
       <label for="crefito">CREFITO:</label>
       <div style="display: flex; gap: 8px;">
-        <input 
-          type="text" 
-          id="crefito" 
-          name="crefito" 
-          placeholder="Ex: 123456" 
-          maxlength="6"
-        >
+        <input type="text" id="crefito" name="crefito" placeholder="Ex: 123456" maxlength="6">
         <select id="tipoCrefito" name="tipoCrefito">
           <option value="F">F (Fisioterapia)</option>
           <option value="TO">TO (Terapia Ocupacional)</option>
@@ -81,9 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome']) && $_POST['nom
 
     <input type="submit" value="Enviar">
     <small>Seus dados estão protegidos de acordo com a LGPD</small>
+    <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
   </form>
-
-     <script src="../assets/javascript/3-cadastro.js" defer></script>
 
 </body>
 </html>

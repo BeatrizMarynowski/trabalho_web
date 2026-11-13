@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <form id="formLogin" action="login.php" method="post" novalidate>
+    <form id="formCadastro" action="login.php" method="post" novalidate>
 
         <div class="login-logo">
             <img src="../assets/imagens/logo.png" alt="Logo Kids Map">
@@ -83,8 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </small>
 
     </form>
-
-   <script src="../assets/javascript/2-login.js" defer></script>
 
 </body>
 </html>

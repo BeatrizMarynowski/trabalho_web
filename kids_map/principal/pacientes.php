@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['profissional_email'])) {
+    header("Location: ../entrada/login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -22,7 +30,10 @@
                 <a href="principal.html">Inicio</a>
             </div>
             <div class="botao-nav">
-                <a href="pacientes.html">pacientes</a>
+                <a href="pacientes.php">pacientes</a>
+            </div>
+            <div class="botao-nav">
+                <a href="cadastrar_pacientes.php">cadastrar pacientes</a>
             </div>
             <div class="botao-nav">
                 <p>ajuda</p>
