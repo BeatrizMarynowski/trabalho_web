@@ -160,15 +160,7 @@ input::placeholder {
 
 /* VALIDAÇÃO DOS CAMPOS */
 
-input.erro {
-    border-color: #d32f2f;
-    background-color: #fff7f7;
-}
 
-input.correto {
-    border-color: #2e7d32;
-    background-color: #f4fff6;
-}
 
 /* MENSAGENS DE ERRO */
 
@@ -177,7 +169,7 @@ input.correto {
 
     margin-top: 7px;
 
-    color: #d32f2f;
+    color: #d32fb2;
     font-size: 12px;
 }
 
@@ -297,22 +289,87 @@ small a:hover {
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 500px) {
+
+
+/* CELULARES */
+
+@media (max-width: 800px) {
 
     body {
-        padding: 20px 14px;
+        padding: 22px 15px;
+        align-items: center;
     }
 
     form {
-        padding: 28px 22px;
+        width: 100%;
+        padding: 24px 18px;
         border-radius: 23px;
     }
 
+    .login-logo img {
+        width: 155px;
+    }
+
     h1 {
-        font-size: 35px;
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .campo {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="password"],
+    select {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .login-divisor {
+        margin: 16px 0;
+    }
+
+    .login-separador {
+        margin: 20px 0 15px;
+    }
+
+}
+
+/* CELULARES MUITO PEQUENOS */
+
+@media (max-width: 350px) {
+
+    body {
+        padding: 14px 10px;
+    }
+
+    form {
+        padding: 20px 14px;
+        border-radius: 19px;
     }
 
     .login-logo img {
-        width: 190px;
+        width: 135px;
     }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
 }
+
