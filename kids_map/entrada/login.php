@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <form id="formCadastro" action="login.php" method="post" novalidate>
+    <form id="formLogin" action="login.php" method="post" novalidate>
 
         <div class="login-logo">
             <img src="../assets/imagens/logo.png" alt="Logo Kids Map">
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <small>
             Não tem conta?
-            <a href="cadastro.html">Cadastre-se</a>
+            <a href="cadastro.php">Cadastre-se</a>
         </small>
 
         <small>
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </form>
 
-    <script src="../assets/javascript/entrada/login.js" defer></script>
+   <script src="../assets/javascript/2-login.js" defer></script>
 
 </body>
 </html>
