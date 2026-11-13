@@ -17,8 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cp
         $consulta = $mysqli->prepare("INSERT INTO paciente (nome, cpf, nascimento, observacoes) VALUES (?,?,?,?)");
         $consulta->bind_param("ssss", $nome, $cpf, $nascimento, $observacoes);
         $consulta->execute();
-        
         $consulta->close();
+
+        $acompanhamento = $mysqli->prepare("INSERT INTO acompanhamento (paciente_cpf, profissional_email, data) VALUES (?, ?, CURDATE())");
+        $acompanhamento->bind_param("ss", $cpf, $_SESSION['profissional_email']);
+        $acompanhamento->execute();
+        $acompanhamento->close();
+
         header("Location: pacientes.php");
         exit;
     } catch (Exception $e) {
