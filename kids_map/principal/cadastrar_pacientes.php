@@ -31,30 +31,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cp
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>cadastrar paciente</title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>(nome do projeto)</title>
+        <link rel="icon" type="image/x-icon" href="assets/logo.png" />
+        <link href="../assets/css/principal/estilo.css" rel="stylesheet" />
+    </head>
 
-    <form method="post" action="">
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" required>
+    <body>
+        <nav>
+            <div class="logo">
+                <div class="icone">
 
-        <label for="cpf">cpf:</label>
-        <input type="text" name="cpf" id="cpf" required>
-
-        <label for="nascimento">nascimento:</label>
-        <input type="date" name="nascimento" id="nascimento" required>
-
-        <label for="observacoes">observaçoes</label>
-        <input type="text" name="observacoes" id="observacoes" required>
-
-        <button type="submit">Enviar</button>
-    </form>
-
-</body>
+                </div>
+                <div>
+                    <p>oi</p>
+                </div>
+            </div>
+            <div class="botao-nav">
+                <a href="principal.html">Inicio</a>
+            </div>
+            <div class="botao-nav">
+                <a href="pacientes.html">pacientes</a>
+            </div>
+            <div class="botao-nav">
+                <p>ajuda</p>
+            </div>
+            <div class="logo">
+                <div class="conta"> 
+                </div>
+                <div>
+                    <p>oi</p>
+                </div>
+            </div>
+        </nav>
+    </body>
 </html>

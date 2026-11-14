@@ -31,10 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['em
       <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
     <title>Cadastro | Kids Map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/css/entrada/estilo.css">
+  <link rel="stylesheet" href="../assets/css/entrada/Login_Cadastro.css">
 </head>
 <body>
-
+<a href="../index.html" class="voltar">
+    <span>←</span>
+    Voltar
+</a>
     
    <form id="formCadastro" action="#" method="post" enctype="multipart/form-data" novalidate>
       <div class="login-logo">
@@ -79,7 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['em
     <input type="submit" value="Enviar">
     <small>Seus dados estão protegidos de acordo com a LGPD</small>
     <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
+      <small>
+            Não tem conta?
+            <a href="login.php">Cadastre-se</a>
+        </small>
   </form>
+  <script src="../assets/javascript/3-cadastro.js"></script>
 
 </body>
 </html>

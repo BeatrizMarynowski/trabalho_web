@@ -1,0 +1,727 @@
+:root {
+    --rosa-bebe: #FDF3F9;
+    --rosa: #BF5F7D;
+    --roxo: #744D80;
+    --roxo-escuro: #5f3e69;
+    --texto: #35283a;
+    --texto-suave: #8d8191;
+    --branco: #ffffff;
+    --borda: #efd5e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", "Segoe UI", sans-serif;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at 100% 100%, #f5e5f3, transparent 35%),
+        #fdfafd;
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==============================
+   NAVBAR LATERAL
+============================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 268px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--branco);
+    border-right: 1px solid var(--borda);
+
+    z-index: 1000;
+}
+
+.sidebar-logo {
+    height: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 20px;
+}
+
+.sidebar-logo img {
+    width: 165px;
+    max-width: 100%;
+    height: 85px;
+    object-fit: contain;
+}
+
+/* LINKS PRINCIPAIS */
+
+.sidebar-menu {
+    padding: 12px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-link {
+    min-height: 53px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 0 18px;
+
+    border-radius: 16px;
+
+    color: var(--roxo);
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.nav-link i {
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.nav-link:hover {
+    background: var(--rosa-bebe);
+    color: var(--rosa);
+}
+
+.nav-link.ativo {
+    color: var(--rosa);
+    background: #f9e5f3;
+}
+
+/* LINKS INFERIORES */
+
+.sidebar-inferior {
+    margin-top: auto;
+    padding: 15px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* CONTA DO PROFISSIONAL */
+
+.sidebar-conta {
+    min-height: 85px;
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border-top: 1px solid #f0e5ef;
+}
+
+.conta-avatar {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+    background: linear-gradient(135deg, var(--roxo), var(--rosa));
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.conta-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.conta-info strong {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.conta-info span {
+    color: var(--texto-suave);
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.conta-seta {
+    margin-left: auto;
+    color: var(--roxo);
+    font-size: 20px;
+}
+
+
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+============================== */
+
+.conteudo {
+    margin-left: 268px;
+    padding: 30px 4% 60px;
+    min-height: 100vh;
+}
+
+
+/* CABEÇALHO */
+
+.pagina-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+.pagina-topo h1 {
+    color: #351343;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.pagina-topo p {
+    margin-top: 7px;
+
+    color: var(--roxo);
+    font-size: 16px;
+}
+
+
+/* BOTÃO ADICIONAR */
+
+.botao-adicionar {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 0 22px;
+
+    border-radius: 30px;
+
+    color: white;
+    background: linear-gradient(100deg, var(--roxo), #d34487);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 0 7px 18px rgba(116, 77, 128, 0.15);
+
+    transition: 0.3s ease;
+}
+
+.botao-adicionar span {
+    font-size: 22px;
+}
+
+.botao-adicionar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(116, 77, 128, 0.23);
+}
+
+
+/* ==============================
+   BUSCA
+============================== */
+
+.busca-pacientes {
+    height: 51px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 0 17px;
+    margin-bottom: 18px;
+
+    background: white;
+    border: 1.5px solid var(--borda);
+    border-radius: 30px;
+
+    transition: 0.3s ease;
+}
+
+.busca-pacientes:focus-within {
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 4px rgba(191, 95, 125, 0.08);
+}
+
+.busca-icone {
+    color: #a47bb1;
+    font-size: 27px;
+}
+
+.busca-pacientes input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.busca-pacientes input::placeholder {
+    color: #a78db3;
+}
+
+
+/* ==============================
+   ÁREA DE PACIENTES
+============================== */
+
+.area-pacientes {
+    min-height: 500px;
+
+    background: white;
+    border: 1.5px solid var(--borda);
+    border-radius: 23px;
+
+    overflow: hidden;
+}
+
+
+/* CABEÇALHO DA TABELA */
+
+.tabela-cabecalho {
+    min-height: 47px;
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+    align-items: center;
+    gap: 15px;
+
+    padding: 0 28px;
+
+    border-bottom: 1px solid #f0dce9;
+
+    color: var(--roxo);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+/* LINHAS */
+
+.paciente-linha {
+    min-height: 75px;
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px 28px;
+
+    border-bottom: 1px solid #f5edf4;
+
+    color: var(--texto-suave);
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.paciente-linha:hover {
+    background: #fff9fd;
+}
+
+.paciente-nome {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--texto);
+}
+
+.paciente-nome strong {
+    font-size: 14px;
+}
+
+.paciente-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--rosa-bebe);
+    color: var(--rosa);
+
+    font-weight: 800;
+}
+
+.paciente-observacao {
+    overflow-wrap: anywhere;
+}
+
+.nenhum-resultado {
+    display: none;
+    padding: 30px;
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+
+/* ==============================
+   ESTADO VAZIO
+============================== */
+
+.estado-vazio {
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+
+    text-align: center;
+}
+
+.vazio-ilustracao {
+    width: 140px;
+    height: 140px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 35px;
+    background: #fbe7f4;
+}
+
+.vazio-ilustracao > span {
+    position: absolute;
+    top: -10px;
+    right: -8px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+    background: linear-gradient(135deg, var(--roxo), var(--rosa));
+
+    font-size: 24px;
+}
+
+.vazio-pata {
+    font-size: 60px;
+}
+
+.estado-vazio h2 {
+    color: #351343;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.estado-vazio p {
+    max-width: 500px;
+
+    margin-bottom: 22px;
+
+    color: var(--roxo);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .conteudo {
+        margin-left: 220px;
+        padding: 65px 3% 40px;
+    }
+
+    .tabela-cabecalho,
+    .paciente-linha {
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .tabela-cabecalho span:last-child,
+    .paciente-observacao {
+        display: none;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+
+        position: relative;
+
+        border-right: none;
+        border-bottom: 1px solid #f0d9eb;
+    }
+
+    .sidebar-logo {
+        height: 85px;
+    }
+
+    .sidebar-logo img {
+        width: 135px;
+        height: 65px;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        padding: 5px 10px 12px;
+    }
+
+    .nav-item {
+        min-height: 42px;
+        padding: 0 12px;
+        gap: 6px;
+
+        font-size: 12px;
+    }
+
+    .nav-icon {
+        font-size: 19px;
+        width: auto;
+    }
+
+    .sidebar-inferior {
+        display: none;
+    }
+
+    .sidebar-conta {
+        display: none;
+    }
+
+    .conteudo {
+        margin-left: 0;
+        padding: 35px 5%;
+    }
+
+    .pagina-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagina-topo h1 {
+        font-size: 29px;
+    }
+
+    .botao-adicionar {
+        width: 100%;
+    }
+
+    .area-pacientes {
+        min-height: 400px;
+    }
+
+    .tabela-cabecalho {
+        display: none;
+    }
+
+    .paciente-linha {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 18px;
+    }
+
+    .paciente-linha > span {
+        padding-left: 50px;
+    }
+
+    .paciente-observacao {
+        display: block;
+    }
+
+    .estado-vazio {
+        min-height: 350px;
+    }
+
+/* ==============================
+   MENU HAMBÚRGUER
+============================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--roxo);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* CELULAR E TABLET */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 75px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        border-right: none;
+        border-bottom: 1px solid var(--borda);
+    }
+
+    .sidebar-logo {
+        width: 100%;
+        height: 75px;
+
+        justify-content: flex-start;
+        padding: 5px 20px;
+    }
+
+    .sidebar-logo img {
+        width: 130px;
+        height: 65px;
+    }
+
+    /* BOTÃO HAMBÚRGUER */
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 17px;
+        right: 20px;
+
+        width: 42px;
+        height: 42px;
+
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+        background: var(--rosa-bebe);
+        color: var(--rosa);
+    }
+
+    /* MENU FECHADO */
+
+    .sidebar-menu,
+    .sidebar-inferior,
+    .sidebar-conta {
+        display: none;
+    }
+
+    /* MENU ABERTO */
+
+    .sidebar.aberto .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 16px 0;
+}
+
+.sidebar.aberto .sidebar-inferior {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 7px 16px 10px;
+    margin-top: 0;
+}
+
+    .sidebar.aberto .sidebar-conta {
+        display: flex;
+        min-height: 75px;
+        padding: 12px 20px;
+    }
+
+    .nav-link {
+        min-height: 46px;
+        padding: 0 15px;
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-link i {
+        width: 25px;
+        font-size: 21px;
+    }
+
+    /* CONTEÚDO */
+
+    .conteudo {
+        margin-left: 0;
+        padding: 30px 5%;
+    }
+}
+}

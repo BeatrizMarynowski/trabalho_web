@@ -1,0 +1,397 @@
+:root {
+    --rosa-bebe: #FDF3F9;
+    --rosa: #BF5F7D;
+    --roxo: #744D80;
+    --roxo-escuro: #5f3e69;
+    --texto: #35283a;
+    --texto-suave: #8d8191;
+    --branco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", "Segoe UI", sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px 20px;
+
+    background:
+        radial-gradient(circle at 0% 0%, #f8d8e8 0, transparent 23%),
+        radial-gradient(circle at 100% 100%, #e8d8ef 0, transparent 25%),
+        #fdfafd;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* DECORAÇÃO DO FUNDO */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+    background: rgba(191, 95, 125, 0.12);
+
+    pointer-events: none;
+}
+
+body::before {
+    top: -150px;
+    left: -100px;
+}
+
+body::after {
+    bottom: -160px;
+    right: -100px;
+
+    background: rgba(116, 77, 128, 0.15);
+}
+
+/* FORMULÁRIO */
+.voltar {
+    display: none;
+}
+form {
+
+    width: 40%;
+    max-width: 550px;
+    padding: 18px;
+    background: var(--branco);
+    border-radius: 30px;
+    box-shadow: 0px 10px 35px rgba(116, 77, 128, 0.12);
+}
+
+/* LOGO */
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.login-logo img {
+    width: 180px;
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+
+/* LINHA DECORATIVA */
+
+.login-divisor {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #e8c9df,
+        var(--rosa),
+        #e8c9df,
+        transparent
+    );
+}
+
+/* TÍTULO */
+
+h1 {
+    text-align: center;
+    color: var(--texto);
+    font-size: 30px;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+/* CAMPOS */
+
+.campo {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 10px;
+    color: var(--texto);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border: 2px solid #d8c6dc;
+    border-radius: 17px;
+    background: #fff;
+    font-size: 15px;
+    color: var(--texto);
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 4px rgba(191, 95, 125, 0.10);
+}
+
+input::placeholder {
+    color: #a69aaa;
+}
+
+/* VALIDAÇÃO DOS CAMPOS */
+
+
+
+/* MENSAGENS DE ERRO */
+
+.mensagem {
+    display: none;
+
+    margin-top: 7px;
+
+    color: #d32fb2;
+    font-size: 12px;
+}
+
+.mensagem.visivel {
+    display: block;
+}
+
+/* MENSAGEM FINAL */
+
+#mensagemFinal {
+    display: none;
+
+    margin-bottom: 18px;
+    padding: 12px;
+
+    border-radius: 10px;
+
+    text-align: center;
+    font-size: 13px;
+}
+
+#mensagemFinal.sucesso {
+    display: block;
+
+    color: #1b5e20;
+    background: #e8f5e9;
+}
+
+#mensagemFinal.erro-final {
+    display: block;
+
+    color: #b71c1c;
+    background: #ffebee;
+}
+
+/* BOTÃO */
+
+input[type="submit"] {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 17px;
+
+    background: linear-gradient(
+        100deg,
+        var(--roxo),
+        var(--rosa)
+    );
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 22px rgba(116, 77, 128, 0.22);
+}
+
+/* DIVISOR DO RODAPÉ */
+
+.login-separador {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 25px 0 20px;
+
+    color: var(--rosa);
+    font-size: 20px;
+}
+
+.login-separador::before,
+.login-separador::after {
+    content: "";
+
+    height: 2px;
+    flex: 1;
+
+    background: #e8d6e7;
+}
+
+/* TEXTOS E LINKS */
+
+small {
+    display: block;
+
+    text-align: center;
+
+    color: var(--texto-suave);
+    font-size: 12px;
+
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+small a {
+    color: var(--rosa);
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+small a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+
+@media (max-width: 800px) {
+
+    /* FLECHA DE VOLTAR */
+    .voltar {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+
+        align-items: center;
+        gap: 8px;
+
+        color: var(--roxo);
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .voltar span {
+        font-size: 28px;
+        transition: transform 0.3s ease;
+    }
+
+    .voltar:hover span {
+        transform: translateX(-5px);
+    }
+
+    body {
+        padding: 22px 15px;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+        padding: 24px 18px;
+        border-radius: 23px;
+    }
+
+    .login-logo img {
+        width: 155px;
+    }
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .campo {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="password"],
+    select {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .login-divisor {
+        margin: 16px 0;
+    }
+
+    .login-separador {
+        margin: 20px 0 15px;
+    }
+}
+
+/* CELULARES MUITO PEQUENOS */
+
+@media (max-width: 350px) {
+
+    body {
+        padding: 14px 10px;
+    }
+
+    form {
+        padding: 20px 14px;
+        border-radius: 19px;
+    }
+
+    .login-logo img {
+        width: 135px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+}
