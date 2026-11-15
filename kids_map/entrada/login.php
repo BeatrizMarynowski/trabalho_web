@@ -34,15 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Kids Map</title>
   <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
-  <link rel="stylesheet" href="../assets/css/entrada/Login_Cadastro.css">
+  <link rel="stylesheet" href="../assets/css/entrada/estilo.css">
 </head>
 
 <body>
-<a href="../index.html" class="voltar">
-    <span>←</span>
-    Voltar
-</a>
-    <form id="formLogin" action="login.php" method="post" novalidate>
+
+    <form id="formCadastro" action="login.php" method="post" novalidate>
 
         <div class="login-logo">
             <img src="../assets/imagens/logo.png" alt="Logo Kids Map">
@@ -86,6 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </small>
 
     </form>
-<script src="../assets/javascript/2-login.js"></script>
+
 </body>
 </html>
