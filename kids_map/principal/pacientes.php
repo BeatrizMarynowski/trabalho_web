@@ -21,6 +21,8 @@ foreach ($partesNome as $parte) {
 
 $iniciais = substr($iniciais, 0, 2);
 
+
+
 // Buscar pacientes
 $consulta = $mysqli->prepare("
     SELECT DISTINCT
@@ -48,11 +50,10 @@ $totalPacientes = $resultado->num_rows;
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <title>Pacientes | Kids Map</title>
- <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/css/principal/pacientes.css">
-
+        <title>Pacientes | Kids Map</title>
+        <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="../assets/css/principal/pacientes.css">
     </head>
 
    <body>
@@ -60,47 +61,36 @@ $totalPacientes = $resultado->num_rows;
     <!-- NAVBAR LATERAL -->
 
     <nav class="sidebar">
-
         <div class="sidebar-logo">
             <img src="../assets/imagens/logo.png" alt="Kids Map">
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
             <i class="bi bi-list"></i>
         </button>
-
         <nav class="sidebar-menu">
-
-           <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
+            <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
             <a class="nav-link ativo" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
             <a class="nav-link" href="#"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
-
         </nav>
 
         <div class="sidebar-inferior">
-
             <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
-
         </div>
 
         <div class="sidebar-conta">
-
             <div class="conta-avatar">
-                <?php echo htmlspecialchars($iniciais); ?>
+                <?php echo $iniciais; ?>
             </div>
-
             <div class="conta-info">
                 <strong>
-                    <?php echo htmlspecialchars($nomeProfissional); ?>
+                    <?php echo $nomeProfissional; ?>
                 </strong>
-
                 <span>
-                    <?php echo htmlspecialchars($emailProfissional); ?>
+                    <?php echo $emailProfissional; ?>
                 </span>
             </div>
-
         </div>
-
-</nav>
+    </nav>
 
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -268,7 +258,7 @@ $totalPacientes = $resultado->num_rows;
         }
      </script>
 
-<script src="../assets/javascript/4-pacientes.js"></script>
+<script src="../assets/javascript/principal/pacientes.js"></script>
 
 </body>
 </html>

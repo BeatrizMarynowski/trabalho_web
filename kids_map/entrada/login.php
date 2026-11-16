@@ -86,6 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </small>
 
     </form>
-<script src="../assets/javascript/2-login.js"></script>
+<script src="../assets/javascript/entrada/login.js"></script>
 </body>
 </html>

@@ -92,5 +92,4 @@ form.addEventListener("submit", function(event) {
         mensagemFinal.className = "erro-final";
         mensagemFinal.textContent = "Confira os campos destacados antes de continuar.";
     }
-  // se estiver tudo válido, o formulário segue para o login.php
 });

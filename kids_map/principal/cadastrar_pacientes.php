@@ -4,8 +4,24 @@ if (!isset($_SESSION['profissional_email'])) {
     header("Location: ../entrada/login.php");
     exit;
 }
-
 include '../configdb.php';
+
+$emailProfissional = $_SESSION['profissional_email'];
+$nomeProfissional = $_SESSION['profissional_nome'] ?? 'Profissional';
+
+
+$partesNome = explode(' ', trim($nomeProfissional));
+$iniciais = '';
+
+foreach ($partesNome as $parte) {
+    if ($parte !== '') {
+        $iniciais .= strtoupper(substr($parte, 0, 1));
+    }
+}
+
+$iniciais = substr($iniciais, 0, 2);
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cpf'] != "" &&  $_POST['nascimento'] != "") {
     
     $nome = $_POST['nome'];
@@ -36,57 +52,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cp
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-       <title>Cadastrar Pacientes | Kids Map</title>
- <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
-
-    <link rel="stylesheet" href="../assets/css/principal/cadastrar_pacientes.css">
+        <title>Cadastrar Pacientes | Kids Map</title>
+        <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
+        <link rel="stylesheet" href="../assets/css/principal/cadastrar_pacientes.css">
     </head>
-
     <body>
         <!-- NAVBAR LATERAL -->
 
-    <nav class="sidebar">
+        <form method="post" action="">
+        <label for="nome">nome:</label>
+        <input type="text" name="nome" id="nome" required>
 
-        <div class="sidebar-logo">
-            <img src="../assets/imagens/logo.png" alt="Kids Map">
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
-            <i class="bi bi-list"></i>
-        </button>
+        <label for="cpf">cpf:</label>
+        <input type="text" name="cpf" id="cpf" required>
 
-        <nav class="sidebar-menu">
+        <label for="nascimento">nacsimento:</label>
+        <input type="date" name="nascimento" id="nascimento" required>
 
-           <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
-            <a class="nav-link ativo" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
-            <a class="nav-link" href="#"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+        <label for="observacoes">observacoes:</label>
+        <input type="text" name="observacoes" id="observacoes" required>
 
-        </nav>
+        <button type="submit">Enviar</button>
+        </form>
 
-        <div class="sidebar-inferior">
-
-            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
-
-        </div>
-
-        <div class="sidebar-conta">
-
-            <div class="conta-avatar">
-                <?php echo htmlspecialchars($iniciais); ?>
-            </div>
-
-            <div class="conta-info">
-                <strong>
-                    <?php echo htmlspecialchars($nomeProfissional); ?>
-                </strong>
-
-                <span>
-                    <?php echo htmlspecialchars($emailProfissional); ?>
-                </span>
-            </div>
-
-        </div>
-
-</nav>
-<script src="../assets/javascript/5-cadastrar-pacientes.js"></script>
+        <script src="../assets/javascript/principal/cadastrar_pacientes.js"></script>
     </body>
 </html>

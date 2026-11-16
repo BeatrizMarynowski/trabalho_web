@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['em
             <a href="login.php">Cadastre-se</a>
         </small>
   </form>
-  <script src="../assets/javascript/3-cadastro.js"></script>
+  <script src="../assets/javascript/entrada/cadastro.js"></script>
 
 </body>
 </html>
