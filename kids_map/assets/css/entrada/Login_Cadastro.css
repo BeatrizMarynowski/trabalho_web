@@ -17,18 +17,11 @@
 body {
     font-family: "DM Sans", "Segoe UI", sans-serif;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 35px 20px;
-
-    background:
-        radial-gradient(circle at 0% 0%, #f8d8e8 0, transparent 23%),
-        radial-gradient(circle at 100% 100%, #e8d8ef 0, transparent 25%),
-        #fdfafd;
-
+     background-image: url("../../imagens/fundo2.png");
     position: relative;
     overflow-x: hidden;
 }
@@ -39,13 +32,10 @@ body::before,
 body::after {
     content: "";
     position: fixed;
-
     width: 230px;
     height: 230px;
-
     border-radius: 50%;
     background: rgba(191, 95, 125, 0.12);
-
     pointer-events: none;
 }
 
@@ -218,11 +208,9 @@ input[type="submit"] {
     border: none;
     border-radius: 17px;
 
-    background: linear-gradient(
-        100deg,
-        var(--roxo),
+    background:     
         var(--rosa)
-    );
+    ;
 
     color: white;
 

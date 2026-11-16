@@ -31,30 +31,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cp
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>cadastrar paciente</title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+       <title>Cadastrar Pacientes | Kids Map</title>
+ <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
 
-    <form method="post" action="">
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" required>
+    <link rel="stylesheet" href="../assets/css/principal/cadastrar_pacientes.css">
+    </head>
 
-        <label for="cpf">cpf:</label>
-        <input type="text" name="cpf" id="cpf" required>
+    <body>
+        <!-- NAVBAR LATERAL -->
 
-        <label for="nascimento">nascimento:</label>
-        <input type="date" name="nascimento" id="nascimento" required>
+    <nav class="sidebar">
 
-        <label for="observacoes">observaçoes</label>
-        <input type="text" name="observacoes" id="observacoes" required>
+        <div class="sidebar-logo">
+            <img src="../assets/imagens/logo.png" alt="Kids Map">
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <i class="bi bi-list"></i>
+        </button>
 
-        <button type="submit">Enviar</button>
-    </form>
+        <nav class="sidebar-menu">
 
-</body>
+           <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
+            <a class="nav-link ativo" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
+            <a class="nav-link" href="#"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+
+        </nav>
+
+        <div class="sidebar-inferior">
+
+            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
+
+        </div>
+
+        <div class="sidebar-conta">
+
+            <div class="conta-avatar">
+                <?php echo htmlspecialchars($iniciais); ?>
+            </div>
+
+            <div class="conta-info">
+                <strong>
+                    <?php echo htmlspecialchars($nomeProfissional); ?>
+                </strong>
+
+                <span>
+                    <?php echo htmlspecialchars($emailProfissional); ?>
+                </span>
+            </div>
+
+        </div>
+
+</nav>
+<script src="../assets/javascript/5-cadastrar-pacientes.js"></script>
+    </body>
 </html>

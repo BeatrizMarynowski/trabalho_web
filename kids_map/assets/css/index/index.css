@@ -1,5 +1,5 @@
 :root {
-    --rosa-bebe: #FDF3F9;
+    --rosa-bebe: #ffecf4;
     --rosa: #BF5F7D;
     --rosa-escuro: #a64d69;
     --roxo: #744D80;
@@ -222,8 +222,10 @@ nav {
 }
 
 .hero-content {
-    flex: 1.2;
+
+    padding-left: 18px;
 }
+
 
 .hero h1 {
     width: 100%;
@@ -231,7 +233,7 @@ nav {
     margin-bottom: 22px;
 
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 56px;
+    font-size: 65px;
     line-height: 1.08;
     font-weight: 800;
 }
@@ -247,7 +249,7 @@ nav {
     margin-bottom: 32px;
 
     color: var(--texto-suave);
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.70;
 }
 
@@ -336,7 +338,7 @@ nav {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 90px;
-    background: #FAF8FB;
+
 }
 
 .testes-intro {
@@ -717,7 +719,8 @@ footer {
 }
 
 .hero-content {
-    
+
+    padding-left: 22px;
     flex: none;
     width: 100%;
     text-align: center;

@@ -1,7 +1,9 @@
+
 :root {
     --rosa-bebe: #FDF3F9;
     --rosa: #BF5F7D;
     --roxo: #744D80;
+    --roxo-bebe: #f7e7fc;
     --roxo-escuro: #5f3e69;
     --texto: #35283a;
     --texto-suave: #8d8191;
@@ -18,9 +20,7 @@
 body {
     font-family: "DM Sans", "Segoe UI", sans-serif;
     color: var(--texto);
-    background:
-        radial-gradient(circle at 100% 100%, #f5e5f3, transparent 35%),
-        #fdfafd;
+     background-image: url("../../imagens/fundo.png");
 
     min-height: 100vh;
     overflow-x: hidden;
@@ -35,21 +35,16 @@ a {
 /* ==============================
    NAVBAR LATERAL
 ============================== */
+
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-
     width: 268px;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
+    background: var(--rosa-bebe);
+    border-right: 1px solid var(--rosa);
 
-    background: var(--branco);
-    border-right: 1px solid var(--borda);
-
-    z-index: 1000;
 }
 
 .sidebar-logo {
@@ -69,6 +64,17 @@ a {
     object-fit: contain;
 }
 
+/* BOTÃO HAMBÚRGUER */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--roxo);
+    font-size: 30px;
+    cursor: pointer;
+}
+
 /* LINKS PRINCIPAIS */
 
 .sidebar-menu {
@@ -77,43 +83,6 @@ a {
     display: flex;
     flex-direction: column;
     gap: 7px;
-}
-
-.nav-link {
-    min-height: 53px;
-
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    padding: 0 18px;
-
-    border-radius: 16px;
-
-    color: var(--roxo);
-    font-size: 15px;
-    font-weight: 600;
-
-    transition: 0.3s ease;
-}
-
-.nav-link i {
-    width: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 21px;
-}
-
-.nav-link:hover {
-    background: var(--rosa-bebe);
-    color: var(--rosa);
-}
-
-.nav-link.ativo {
-    color: var(--rosa);
-    background: #f9e5f3;
 }
 
 /* LINKS INFERIORES */
@@ -176,6 +145,7 @@ a {
 .conta-info span {
     color: var(--texto-suave);
     font-size: 11px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -188,7 +158,6 @@ a {
 }
 
 
-
 /* ==============================
    CONTEÚDO PRINCIPAL
 ============================== */
@@ -198,7 +167,6 @@ a {
     padding: 30px 4% 60px;
     min-height: 100vh;
 }
-
 
 /* CABEÇALHO */
 
@@ -210,7 +178,6 @@ a {
     margin-bottom: 20px;
 }
 
-
 .pagina-topo h1 {
     color: #351343;
     font-size: 34px;
@@ -219,11 +186,9 @@ a {
 
 .pagina-topo p {
     margin-top: 7px;
-
     color: var(--roxo);
     font-size: 16px;
 }
-
 
 /* BOTÃO ADICIONAR */
 
@@ -239,8 +204,8 @@ a {
 
     border-radius: 30px;
 
-    color: white;
-    background: linear-gradient(100deg, var(--roxo), #d34487);
+    color: var(--branco);
+    background: var(--rosa);
 
     font-size: 14px;
     font-weight: 700;
@@ -324,7 +289,6 @@ a {
     overflow: hidden;
 }
 
-
 /* CABEÇALHO DA TABELA */
 
 .tabela-cabecalho {
@@ -344,7 +308,6 @@ a {
     font-weight: 800;
     text-transform: uppercase;
 }
-
 
 /* LINHAS */
 
@@ -487,18 +450,22 @@ a {
 
 
 /* ==============================
-   RESPONSIVIDADE
+   TABLETS
 ============================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px) and (min-width: 701px) {
 
     .sidebar {
         width: 220px;
     }
 
+    .sidebar-logo img {
+        width: 145px;
+    }
+
     .conteudo {
         margin-left: 220px;
-        padding: 65px 3% 40px;
+        padding: 40px 3% 40px;
     }
 
     .tabela-cabecalho,
@@ -510,133 +477,33 @@ a {
     .paciente-observacao {
         display: none;
     }
+
 }
 
-
-@media (max-width: 700px) {
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-
-        position: relative;
-
-        border-right: none;
-        border-bottom: 1px solid #f0d9eb;
-    }
-
-    .sidebar-logo {
-        height: 85px;
-    }
-
-    .sidebar-logo img {
-        width: 135px;
-        height: 65px;
-    }
-
-    .sidebar-menu {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        padding: 5px 10px 12px;
-    }
-
-    .nav-item {
-        min-height: 42px;
-        padding: 0 12px;
-        gap: 6px;
-
-        font-size: 12px;
-    }
-
-    .nav-icon {
-        font-size: 19px;
-        width: auto;
-    }
-
-    .sidebar-inferior {
-        display: none;
-    }
-
-    .sidebar-conta {
-        display: none;
-    }
-
-    .conteudo {
-        margin-left: 0;
-        padding: 35px 5%;
-    }
-
-    .pagina-topo {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .pagina-topo h1 {
-        font-size: 29px;
-    }
-
-    .botao-adicionar {
-        width: 100%;
-    }
-
-    .area-pacientes {
-        min-height: 400px;
-    }
-
-    .tabela-cabecalho {
-        display: none;
-    }
-
-    .paciente-linha {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 18px;
-    }
-
-    .paciente-linha > span {
-        padding-left: 50px;
-    }
-
-    .paciente-observacao {
-        display: block;
-    }
-
-    .estado-vazio {
-        min-height: 350px;
-    }
 
 /* ==============================
-   MENU HAMBÚRGUER
+   CELULARES - MENU HAMBÚRGUER
 ============================== */
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--roxo);
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* CELULAR E TABLET */
 
 @media (max-width: 700px) {
 
+    /* SIDEBAR */
+
     .sidebar {
         position: relative;
+
         width: 100%;
         height: auto;
         min-height: 75px;
 
         display: flex;
         flex-direction: column;
-        align-items: stretch;
 
         border-right: none;
         border-bottom: 1px solid var(--borda);
     }
+
+    /* LOGO */
 
     .sidebar-logo {
         width: 100%;
@@ -665,11 +532,19 @@ a {
         width: 42px;
         height: 42px;
 
+        background: transparent;
+        border: none;
         border-radius: 10px;
+
+        color: var(--roxo);
+        font-size: 30px;
+
+        cursor: pointer;
         transition: 0.3s ease;
     }
 
-    .menu-toggle:hover {
+    .menu-toggle:hover,
+    .menu-toggle.active {
         background: var(--rosa-bebe);
         color: var(--rosa);
     }
@@ -685,30 +560,36 @@ a {
     /* MENU ABERTO */
 
     .sidebar.aberto .sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 10px 16px 0;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
 
-.sidebar.aberto .sidebar-inferior {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 7px 16px 10px;
-    margin-top: 0;
-}
+        padding: 10px 16px 0;
+    }
+
+    .sidebar.aberto .sidebar-inferior {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        padding: 7px 16px 10px;
+        margin-top: 0;
+    }
 
     .sidebar.aberto .sidebar-conta {
         display: flex;
+
         min-height: 75px;
         padding: 12px 20px;
     }
+
+    /* LINKS */
 
     .nav-link {
         min-height: 46px;
         padding: 0 15px;
         gap: 12px;
+
         font-size: 14px;
     }
 
@@ -723,5 +604,48 @@ a {
         margin-left: 0;
         padding: 30px 5%;
     }
-}
+
+    .pagina-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagina-topo h1 {
+        font-size: 29px;
+    }
+
+    .botao-adicionar {
+        width: 100%;
+    }
+
+    /* PACIENTES */
+
+    .area-pacientes {
+        min-height: 400px;
+    }
+
+    .tabela-cabecalho {
+        display: none;
+    }
+
+    .paciente-linha {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 18px;
+    }
+
+    .paciente-linha > span {
+        padding-left: 50px;
+    }
+
+    .paciente-observacao {
+        display: block;
+    }
+
+    /* ESTADO VAZIO */
+
+    .estado-vazio {
+        min-height: 350px;
+    }
+
 }
