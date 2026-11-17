@@ -13,7 +13,7 @@ $iniciais = '';
 foreach ($partesNome as $parte) {
     if ($parte !== '') {
         $iniciais .= strtoupper(substr($parte, 0, 1));
-    }
+    } 
 }
 $iniciais = substr($iniciais, 0, 2);
 
