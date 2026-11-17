@@ -1,21 +1,41 @@
+
+:root {
+    --rosa-bebe: #FDF3F9;
+    --rosa: #BF5F7D;
+    --roxo: #744D80;
+    --roxo-bebe: #f7e7fc;
+    --roxo-escuro: #5f3e69;
+    --texto: #35283a;
+    --texto-suave: #8d8191;
+    --branco: #ffffff;
+    --borda: #efd5e9;
+}
+
+/* CONFIGURAÇÃO GERAL DA NAVBAR */
+
 .sidebar {
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
     width: 268px;
     height: 100vh;
+
     display: flex;
     flex-direction: column;
+
     background: var(--rosa-bebe);
     border-right: 1px solid var(--rosa);
-
 }
+
+/* LOGO */
 
 .sidebar-logo {
     height: 115px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 5px 20px;
 }
 
@@ -41,7 +61,6 @@
 
 .sidebar-menu {
     padding: 12px 16px;
-
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -49,13 +68,10 @@
 
 .nav-link {
     min-height: 53px;
-
     display: flex;
     align-items: center;
     gap: 15px;
-
     padding: 0 18px;
-
     border-radius: 16px;
 
     color: var(--roxo);
@@ -67,11 +83,9 @@
 
 .nav-link i {
     width: 25px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 21px;
 }
 
@@ -119,7 +133,6 @@
     justify-content: center;
 
     border-radius: 50%;
-
     color: white;
     background: linear-gradient(135deg, var(--roxo), var(--rosa));
 
@@ -129,7 +142,6 @@
 
 .conta-info {
     min-width: 0;
-
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -145,7 +157,6 @@
 .conta-info span {
     color: var(--texto-suave);
     font-size: 11px;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -155,4 +166,140 @@
     margin-left: auto;
     color: var(--roxo);
     font-size: 20px;
+}
+.sidebar a,
+.sidebar a:hover,
+.sidebar a:focus,
+.sidebar a:visited {
+    text-decoration: none;
+}
+
+/* BOTÃO SAIR */
+
+.sidebar-inferior .nav-link.sair {
+    color: #d9364f;
+    background: #ffe5e8;
+}
+
+.sidebar-inferior .nav-link.sair i {
+    color: #d9364f;
+}
+
+.sidebar-inferior .nav-link.sair:hover {
+    color: #ffffff;
+    background: #d9364f;
+}
+
+.sidebar-inferior .nav-link.sair:hover i {
+    color: #ffffff;
+}
+/* CELULARES */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+        min-height: 75px;
+
+        display: flex;
+        flex-direction: column;
+
+        border-right: none;
+        border-bottom: 1px solid var(--borda);
+    }
+
+    /* LOGO */
+
+    .sidebar-logo {
+        width: 100%;
+        height: 75px;
+        justify-content: flex-start;
+        padding: 5px 20px;
+    }
+
+    .sidebar-logo img {
+        width: 130px;
+        height: 65px;
+    }
+
+    /* BOTÃO HAMBÚRGUER */
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 17px;
+        right: 20px;
+
+        width: 42px;
+        height: 42px;
+
+        background: transparent;
+        border: none;
+        border-radius: 10px;
+
+        color: var(--roxo);
+        font-size: 30px;
+
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle.active {
+        background: var(--rosa-bebe);
+        color: var(--rosa);
+    }
+
+    /* MENU FECHADO */
+
+    .sidebar-menu,
+    .sidebar-inferior,
+    .sidebar-conta {
+        display: none;
+    }
+
+    /* MENU ABERTO */
+
+    .sidebar.aberto .sidebar-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        padding: 10px 16px 0;
+    }
+
+    .sidebar.aberto .sidebar-inferior {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        padding: 7px 16px 10px;
+        margin-top: 0;
+    }
+
+    .sidebar.aberto .sidebar-conta {
+        display: flex;
+        min-height: 75px;
+        padding: 12px 20px;
+    }
+
+    /* LINKS */
+
+    .nav-link {
+        min-height: 46px;
+        padding: 0 15px;
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-link i {
+        width: 25px;
+        font-size: 21px;
+    }
 }

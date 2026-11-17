@@ -1,5 +1,4 @@
 
-
 :root {
     --rosa-bebe: #FDF3F9;
     --rosa: #BF5F7D;
@@ -12,256 +11,340 @@
     --borda: #efd5e9;
 }
 
-/* ==============================
-   NAVBAR LATERAL
-============================== */
+/* CONFIGURAÇÕES GERAIS */
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 268px;
-    height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: "DM Sans", "Segoe UI", sans-serif;
+    background-image: url("../../imagens/fundo.png");
+    color: var(--texto);
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.conteudo-cadastro {
+    margin-left: 268px;
+    min-height: 100vh;
+    padding: 30px 45px;
+}
+
+/* BOTÃO VOLTAR */
+
+.voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--roxo);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+    display:none;
+    margin-bottom: 25px;
+    transition: 0.2s ease;
+}
+
+.voltar:hover {
+    color: var(--rosa);
+    transform: translateX(-3px);
+}
+
+.voltar i {
+    font-size: 18px;
+}
+
+/* CONTAINER DO CADASTRO */
+
+.cadastro-container {
+    width: 100%;
+    min-height: calc(100vh - 120px);
 
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    background: var(--rosa-bebe);
-    border-right: 1px solid var(--rosa);
+    padding: 15px 0;
+}
 
-    z-index: 1000;
+/* CARD */
+
+.cadastro-card {
+    width: 100%;
+    max-width: 600px;
+
+    background: var(--branco);
+
+    padding: 35px 45px;
+
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+
+    box-shadow: 0 5px 25px rgba(116, 77, 128, 0.08);
 }
 
 /* LOGO */
 
-.sidebar-logo {
-    height: 115px;
-
+.login-logo {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    padding: 5px 20px;
+    margin-bottom: 18px;
 }
 
-.sidebar-logo img {
-    width: 165px;
-    max-width: 100%;
-    height: 85px;
+.login-logo img {
+    width: 150px;
+    height: 75px;
     object-fit: contain;
 }
 
-/* BOTÃO HAMBÚRGUER */
+/* DIVISOR */
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
+.login-divisor {
+    width: 65px;
+    height: 3px;
+
+    background: var(--rosa);
+
+    border-radius: 10px;
+
+    margin: 0 auto 22px;
+}
+
+/* TÍTULO */
+
+.cadastro-card h1 {
+    text-align: center;
+
     color: var(--roxo);
-    font-size: 30px;
-    cursor: pointer;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
 }
 
-/* LINKS PRINCIPAIS */
+.subtitulo {
+    text-align: center;
 
-.sidebar-menu {
-    padding: 12px 16px;
+    color: var(--texto-suave);
 
+    font-size: 14px;
+    line-height: 1.5;
+
+    margin-bottom: 28px;
+}
+
+/* FORMULÁRIO */
+
+.cadastro-form {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 18px;
 }
 
-/* LINKS INFERIORES */
+/* CAMPOS */
 
-.sidebar-inferior {
-    margin-top: auto;
-    padding: 15px 16px;
-
+.campo {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
 }
 
-/* CONTA DO PROFISSIONAL */
+.campo label {
+    color: var(--texto);
 
-.sidebar-conta {
-    min-height: 85px;
-    padding: 15px 20px;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    border-top: 1px solid #f0e5ef;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-.conta-avatar {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
+/* INPUTS E TEXTAREA */
+
+.campo input,
+.campo textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: #fffafd;
+
+    color: var(--texto);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.campo input {
+    height: 46px;
+}
+
+.campo textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #b5a9b8;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--roxo);
+    background: var(--branco);
+
+    box-shadow: 0 0 0 3px rgba(116, 77, 128, 0.09);
+}
+
+/* BOTÃO CADASTRAR */
+
+.botao-cadastrar {
+    width: 100%;
+    min-height: 48px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
-    border-radius: 50%;
+    margin-top: 5px;
 
-    color: white;
-    background: linear-gradient(
-        135deg,
-        var(--roxo),
-        var(--rosa)
-    );
+    background: var(--roxo);
+    color: var(--branco);
+
+    border: none;
+    border-radius: 10px;
 
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
 }
 
-.conta-info {
-    min-width: 0;
+.botao-cadastrar:hover {
+    background: var(--roxo-escuro);
+    transform: translateY(-2px);
 
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    box-shadow: 0 5px 12px rgba(116, 77, 128, 0.2);
 }
 
-.conta-info strong {
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.botao-cadastrar i {
+    font-size: 18px;
 }
 
-.conta-info span {
+/* TEXTO INFORMATIVO */
+
+.cadastro-form small {
+    text-align: center;
+
     color: var(--texto-suave);
+
     font-size: 11px;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.conta-seta {
-    margin-left: auto;
-    color: var(--roxo);
-    font-size: 20px;
+/* MENSAGEM DE ERRO */
+
+.mensagem-erro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 15px;
+    margin-bottom: 20px;
+
+    background: #fff0f0;
+    color: #b33a48;
+
+    border: 1px solid #f2caca;
+    border-radius: 9px;
+
+    font-size: 13px;
 }
 
-/* ==============================
-   CELULARES - MENU HAMBÚRGUER
-============================== */
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .conteudo-cadastro {
+        padding: 25px 30px;
+    }
+
+    .cadastro-card {
+        max-width: 550px;
+        padding: 30px 35px;
+    }
+
+}
 
 @media (max-width: 700px) {
 
-    /* SIDEBAR */
+    /* A navbar passa a ocupar o topo */
 
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: 75px;
-
-        display: flex;
-        flex-direction: column;
-
-        border-right: none;
-        border-bottom: 1px solid var(--borda);
+    .conteudo-cadastro {
+        margin-left: 0;
+        min-height: auto;
+        padding: 20px 18px 35px;
     }
 
-    /* LOGO */
-
-    .sidebar-logo {
-        width: 100%;
-        height: 75px;
-
-        justify-content: flex-start;
-        padding: 5px 20px;
+    .voltar {
+        margin-bottom: 18px;
+           display: inline-flex;
     }
 
-    .sidebar-logo img {
+    .cadastro-container {
+        min-height: auto;
+        padding: 10px 0;
+    }
+
+    .cadastro-card {
+        max-width: 100%;
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .login-logo img {
         width: 130px;
         height: 65px;
     }
 
-    /* BOTÃO HAMBÚRGUER */
-
-    .menu-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        position: absolute;
-        top: 17px;
-        right: 20px;
-
-        width: 42px;
-        height: 42px;
-
-        background: transparent;
-        border: none;
-        border-radius: 10px;
-
-        color: var(--roxo);
-        font-size: 30px;
-
-        cursor: pointer;
-        transition: 0.3s ease;
+    .cadastro-card h1 {
+        font-size: 22px;
     }
 
-    .menu-toggle:hover,
-    .menu-toggle.active {
-        background: var(--rosa-bebe);
-        color: var(--rosa);
+    .subtitulo {
+        font-size: 13px;
     }
 
-    /* MENU FECHADO */
+}
 
-    .sidebar-menu,
-    .sidebar-inferior,
-    .sidebar-conta {
-        display: none;
+@media (max-width: 400px) {
+
+    .conteudo-cadastro {
+        padding: 18px 12px 25px;
     }
 
-    /* MENU ABERTO */
-
-    .sidebar.aberto .sidebar-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-
-        padding: 10px 16px 0;
+    .cadastro-card {
+        padding: 25px 17px;
     }
 
-    .sidebar.aberto .sidebar-inferior {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-
-        padding: 7px 16px 10px;
-        margin-top: 0;
-    }
-
-    .sidebar.aberto .sidebar-conta {
-        display: flex;
-
-        min-height: 75px;
-        padding: 12px 20px;
-    }
-
-    /* LINKS */
-
-    .nav-link {
-        min-height: 46px;
-        padding: 0 15px;
-        gap: 12px;
-
-        font-size: 14px;
-    }
-
-    .nav-link i {
-        width: 25px;
-        font-size: 21px;
+    .cadastro-form {
+        gap: 15px;
     }
 
 }

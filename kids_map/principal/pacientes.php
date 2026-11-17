@@ -48,13 +48,14 @@ $totalPacientes = $resultado->num_rows;
         <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../assets/css/principal/pacientes.css">
+        <link rel="stylesheet" href="../assets/css/principal/nav.css">
     </head>
 
    <body>
 
     <!-- NAVBAR LATERAL -->
 
-    <nav class="sidebar">
+    <aside class="sidebar">
         <div class="sidebar-logo">
             <img src="../assets/imagens/logo.png" alt="Kids Map">
         </div>
@@ -62,13 +63,15 @@ $totalPacientes = $resultado->num_rows;
             <i class="bi bi-list"></i>
         </button>
         <nav class="sidebar-menu">
-            <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
+            <a class="nav-link" href="principal.php"><i class="bi bi-house"></i><span>Início</span></a>
             <a class="nav-link ativo" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
             <a class="nav-link" href="cadastrar_teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
         </nav>
 
         <div class="sidebar-inferior">
+             <a href="index.php" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
             <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
+           
         </div>
 
         <div class="sidebar-conta">
@@ -84,7 +87,7 @@ $totalPacientes = $resultado->num_rows;
                 </span>
             </div>
         </div>
-    </nav>
+    </aside>
 
 
     <!-- CONTEÚDO PRINCIPAL -->
