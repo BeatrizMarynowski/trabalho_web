@@ -5,21 +5,18 @@ if (!isset($_SESSION['profissional_email'])) {
     exit;
 }
 include '../configdb.php';
-
-$emailProfissional = $_SESSION['profissional_email'];
-$nomeProfissional = $_SESSION['profissional_nome'] ?? 'Profissional';
-
-
-$partesNome = explode(' ', trim($nomeProfissional));
+//nav
+$emailprofissional = $_SESSION['profissional_email'];
+$nomeprofissional = $_SESSION['profissional_nome'] ?? 'Profissional';
+$partesNome = explode(' ', trim($nomeprofissional));
 $iniciais = '';
-
 foreach ($partesNome as $parte) {
     if ($parte !== '') {
         $iniciais .= strtoupper(substr($parte, 0, 1));
     }
 }
-
 $iniciais = substr($iniciais, 0, 2);
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['cpf'] != "" &&  $_POST['nascimento'] != "") {

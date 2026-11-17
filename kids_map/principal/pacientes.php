@@ -5,25 +5,20 @@ if (!isset($_SESSION['profissional_email'])) {
     exit;
 }
 include '../configdb.php';
-
-$emailProfissional = $_SESSION['profissional_email'];
-$nomeProfissional = $_SESSION['profissional_nome'] ?? 'Profissional';
-
-
-$partesNome = explode(' ', trim($nomeProfissional));
+//nav
+$emailprofissional = $_SESSION['profissional_email'];
+$nomeprofissional = $_SESSION['profissional_nome'] ?? 'Profissional';
+$partesNome = explode(' ', trim($nomeprofissional));
 $iniciais = '';
-
 foreach ($partesNome as $parte) {
     if ($parte !== '') {
         $iniciais .= strtoupper(substr($parte, 0, 1));
     }
 }
-
 $iniciais = substr($iniciais, 0, 2);
 
 
 
-// Buscar pacientes
 $consulta = $mysqli->prepare("
     SELECT DISTINCT
         p.cpf,
@@ -36,12 +31,11 @@ $consulta = $mysqli->prepare("
     ORDER BY p.nome
 ");
 
-$consulta->bind_param("s", $emailProfissional);
+$consulta->bind_param("s", $emailprofissional);
 $consulta->execute();
 
 $resultado = $consulta->get_result();
 
-// Quantidade de pacientes
 $totalPacientes = $resultado->num_rows;
 ?>
 
@@ -70,7 +64,7 @@ $totalPacientes = $resultado->num_rows;
         <nav class="sidebar-menu">
             <a class="nav-link" href="principal.html"><i class="bi bi-house"></i><span>Início</span></a>
             <a class="nav-link ativo" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
-            <a class="nav-link" href="#"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+            <a class="nav-link" href="cadastrar_teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
         </nav>
 
         <div class="sidebar-inferior">
@@ -83,10 +77,10 @@ $totalPacientes = $resultado->num_rows;
             </div>
             <div class="conta-info">
                 <strong>
-                    <?php echo $nomeProfissional; ?>
+                    <?php echo $nomeprofissional; ?>
                 </strong>
                 <span>
-                    <?php echo $emailProfissional; ?>
+                    <?php echo $emailprofissional; ?>
                 </span>
             </div>
         </div>
