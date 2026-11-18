@@ -47,7 +47,7 @@ $consulta->close();
             <nav class="sidebar-menu">
                 <a class="nav-link ativo" href="principal.php"><i class="bi bi-house"></i><span>Início</span></a>
                 <a class="nav-link" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
-                <a class="nav-link" href="cadastrar_teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+                <a class="nav-link" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
             </nav>
             <div class="sidebar-inferior">
                 <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>

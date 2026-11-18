@@ -20,18 +20,21 @@ $iniciais = substr($iniciais, 0, 2);
 
 
 $erro = '';
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'] != "" &&  $_POST['nascimento'] != "") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'] != "" &&  $_POST['nascimento'] != "" && $_POST['nome_pai'] != "" && $_POST['cpf_pai'] != "" && $_POST['telefone_pai'] != "") {
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $nascimento = $_POST['nascimento'];
     $observacoes = $_POST['observacoes'];
+    $nome_pai = $_POST['nome_pai'];
+    $cpf_pai = $_POST['cpf_pai'];
+    $telefone_pai = $_POST['telefone_pai'];
     try {
-        $consulta = $mysqli->prepare("INSERT INTO paciente (nome, cpf, nascimento, observacoes) VALUES (?,?,?,?)");
-        $consulta->bind_param("ssss", $nome, $cpf, $nascimento, $observacoes);
+        $consulta = $mysqli->prepare("INSERT INTO paciente (nome, cpf, nascimento, observacoes, nome_pai, cpf_pai, telefone_pai) VALUES (?,?,?,?,?,?,?)");
+        $consulta->bind_param("sssssss", $nome, $cpf, $nascimento, $observacoes, $nome_pai, $cpf_pai, $telefone_pai);
         $consulta->execute();
         $consulta->close();
 
-        $acompanhamento = $mysqli->prepare("INSERT INTO acompanhamento (paciente_cpf, profissional_email, data) VALUES (?, ?, CURDATE())");
+        $acompanhamento = $mysqli->prepare("INSERT INTO acompanhamento (paciente_cpf, profissional_email) VALUES (?, ?)");
         $acompanhamento->bind_param("ss", $cpf, $_SESSION['profissional_email']);
         $acompanhamento->execute();
         $acompanhamento->close();
@@ -64,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'
             <nav class="sidebar-menu">
                 <a class="nav-link" href="principal.php"><i class="bi bi-house"></i><span>Início</span></a>
                 <a class="nav-link" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
-                <a class="nav-link" href="cadastrar_teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+                <a class="nav-link" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
             </nav>
             <div class="sidebar-inferior">
                 <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
@@ -106,6 +109,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'
                         <div class="campo">
                             <label for="observacoes">Observações</label>
                             <textarea id="observacoes" name="observacoes" placeholder="Adicione informações importantes sobre o paciente..." rows="4"></textarea>
+                        </div>
+                        <div class="campo">
+                            <label for="cpf_pai">cpf - responsavel *</label>
+                            <input type="text" id="cpf_pai" name="cpf_pai" required>
+                        </div>
+                        <div class="campo">
+                            <label for="nome_pai">nome_pai *</label>
+                            <input type="tex" id="nome_pai" name="nome_pai" required>
+                        </div>
+                        <div class="campo">
+                            <label for="telefone_pai">Telefone do pai *</label>
+                            <input type="text" id="telefone_pai" name="telefone_pai" required>
                         </div>
                         <button type="submit" class="botao-cadastrar">
                             <i class="bi bi-person-plus"></i>
