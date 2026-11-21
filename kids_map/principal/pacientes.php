@@ -90,6 +90,7 @@ $totalPacientes = $resultado->num_rows;
                     <span>Paciente</span>
                     <span>Sexo</span>
                     <span>Nascimento</span>
+                    <span>Nome do Responsável</span>
                 </div>
                 <?php if ($totalPacientes === 0) { ?>
                     <div class="estado-vazio">

@@ -24,6 +24,12 @@ $consulta->bind_param("s", $emailprofissional);
 $consulta->execute();
 $totalPacientes = $consulta->get_result()->fetch_assoc()['total'];
 $consulta->close();
+
+$testes = $mysqli->prepare("SELECT COUNT(DISTINCT avaliaçao_id) AS total FROM exame WHERE profissional_email = ?");
+$testes->bind_param("s", $emailprofissional);
+$testes->execute();
+$totalTestes = $testes->get_result()->fetch_assoc()['total'];
+$testes->close();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -89,7 +95,7 @@ $consulta->close();
                     </div>
                     <div>
                         <span>Avaliações realizadas</span>
-                        <h2>--</h2>
+                         <h2><?php echo $totalTestes; ?></h2>
                     </div>
                 </div>
             </section>
@@ -131,17 +137,7 @@ $consulta->close();
                     </a>
                 </div>
             </section>
-            <section class="destaque">
-                <div class="destaque-icone">
-                    <i class="bi bi-heart-fill"></i>
-                </div>
-                <div>
-                    <h2>Cada pequena conquista importa!</h2>
-                    <p>Acompanhe cada etapa do desenvolvimento e registre a evolução de cada criança.
-                    </p>
-                </div>
-                <i class="bi bi-stars destaque-estrelas"></i>
-            </section>
+     
         </main>
     </body>
 </html>

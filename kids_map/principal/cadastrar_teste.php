@@ -48,6 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>" . $e->getMessage() . "</p>";
     }
 }
+$areas = [
+    "Motricidade Fina",
+    "Motricidade Global",
+    "Equilíbrio",
+    "Esquema Corporal",
+    "Organização Espacial",
+    "Organização Temporal",
+];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -56,34 +64,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Cadastrar teste | Kids Map</title>
         <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="../assets/css/principal/cadastrar_teste.css">
+        <link rel="stylesheet" href="../assets/css/principal/nav.css">
     </head>
-    <body>
-        <form method="post" action="">
-            <label for='cpf'>cpf paciente</label>
-            <select id='cpf' name='cpf' required>
-                <option value="">Selecione...</option>
-                <?php
-                foreach ($pacientes_resultado as $opcoes) {
-                    echo "<option value='" . $opcoes['cpf'] . "'>". $opcoes['nome'] . " (" . $opcoes['cpf'] . ")". "</option>";
-                }
-                ?>
-            </select>
-            <datalist id="opcoes">
-                <option value="0">
-                <option value="1">
-            </datalist>
-            <?php
-            for ($i = 1; $i <= 42; $i++) {
-                if ($i == 31 || $i == 32) continue;
+     <body>
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="../assets/imagens/logo.png" alt="Kids Map">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="bi bi-list"></i>
+            </button>
+            <nav class="sidebar-menu">
+                <a class="nav-link" href="principal.php"><i class="bi bi-house"></i><span>Início</span></a>
+                <a class="nav-link" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
+                <a class="nav-link ativo" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+            </nav>
+            <div class="sidebar-inferior">
+                <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
+            </div>
+            <div class="sidebar-conta">
+                <div class="conta-avatar"><?php echo $iniciais; ?></div>
+                <div class="conta-info">
+                    <strong><?php echo $nomeprofissional; ?></strong>
+                    <span><?php echo $emailprofissional; ?></span>
+                </div>
+            </div>
+        </aside>
 
-                $id   = "atividade_$i";
-                $name = "resultado[$i]";
+        <main class="conteudo">
+            <header class="pagina-topo">
+                <div>
+                    <h1>Nova avaliação</h1>
+                    <p>Selecione o paciente e preencha o resultado de cada atividade.</p>
+                </div>
+            </header>
 
-                echo "<label for='$id'>Atividade $i</label>";
-                echo "<input type='text' id='$id' name='$name' list='opcoes' maxlength='1' required>";    
-            }
-            ?>
-            <button type="submit">Enviar</button>
-        </form>
+            <form method="post" action="" class="form-teste">
+                <section class="card-form">
+                    <div class="campo">
+                        <label for="cpf">Paciente</label>
+                        <select id="cpf" name="cpf" required>
+                            <option value="">Selecione...</option>
+                            <?php
+                            foreach ($pacientes_resultado as $opcoes) {
+                                echo "<option value='" . $opcoes['cpf'] . "'>" . $opcoes['nome'] . " (" . $opcoes['cpf'] . ")" . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="card-form">
+                 <h2>Atividades</h2>
+                    <div class="tabela-wrap">
+                        <table class="tabela-edm">
+                            <thead>
+                                <tr>
+                                    <th>Teste</th>
+                                    <?php for ($idade = 2; $idade <= 11; $idade++) { ?>
+                                        <th><?php echo $idade; ?></th>
+                                    <?php } ?>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($areas as $linha => $nomeArea) { ?>
+                                    <tr>
+                                        <td class="area-nome"><?php echo $nomeArea; ?></td>
+                                        <?php for ($coluna = 0; $coluna < 10; $coluna++) {
+                                            $atividade = $linha * 10 + $coluna + 1; ?>
+                                            <td>
+                                                <select name="resultado[<?php echo $atividade; ?>]" aria-label="<?php echo $nomeArea; ?> - atividade <?php echo $atividade; ?>">
+                                                    
+                                                    <option value="1">1</option>
+                                                    <option value="0">0</option>
+                                                </select>
+                                            </td>
+                                        <?php } ?>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div class="form-acoes">
+                    <a href="teste.php" class="botao-voltar">Voltar</a>
+                    <button type="submit" class="botao-salvar">Salvar avaliação</button>
+                </div>
+            </form>
+        </main>
+
+        <script src="../assets/javascript/principal/pacientes.js"></script>
     </body>
 </html>

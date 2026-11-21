@@ -36,7 +36,7 @@ $consulta->close();
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Pacientes | Kids Map</title>
+        <title>Nova Avaliação | Kids Map</title>
         <link rel="icon" type="image/x-icon" href="../assets/imagens/icone.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../assets/css/principal/pacientes.css">
@@ -75,27 +75,33 @@ $consulta->close();
         </aside>
         <main class="conteudo">
             <header class="pagina-topo">
-                <div>
-                    <h1>Pacientes</h1>
-                    <p>
-                        <?php if ($totaltestes > 0) { ?>
-                            Gerencie os pacientes vinculados à sua conta.
-                        <?php } else { ?>
-                            Nenhum paciente ainda — Vamos adicionar o primeiro?
-                        <?php } ?>
-                    </p>
+            <div>
+                <h1>Avaliações</h1>
+
+                <p>
+                    <?php if ($totaltestes > 0) { ?>
+                        Gerencie as avaliações vinculadas à sua conta.
+                    <?php } else { ?>
+                        Nenhuma avaliação ainda — Vamos adicionar a primeira?
+                    <?php } ?>
+                </p>
+
+                <div class="historico-topo">
+                    <h2>Histórico de Avaliações</h2>
                 </div>
-                <a href="cadastrar_teste.php" class="botao-adicionar"><span>+</span>Adicionar teste</a>
-            </header>
-            <div class="busca-pacientes">
-                <span class="busca-icone">⌕</span>
-                <input type="text" id="buscaPaciente" placeholder="Busque pelo nome da criança...">
             </div>
+
+            <a href="cadastrar_teste.php" class="botao-adicionar">
+                <span>+</span>Adicionar teste
+            </a>
+        </header>
+            
             <section class="area-pacientes">
                 <div class="tabela-cabecalho">
                     <span>Paciente</span>
                     <span>Sexo</span>
                     <span>Nascimento</span>
+                    <span>Classificação</span>
                 </div>
                 <?php if ($totaltestes === 0) { ?>
                     <div class="estado-vazio">
@@ -103,9 +109,9 @@ $consulta->close();
                             <span>＋</span>
                             <a class="vazio-pata" href="#"><i class="bi bi-journal-medical"></i></a>
                         </div>
-                        <h2>Nenhum paciente por aqui ainda</h2>
-                        <p>Adicione seu primeiro paciente para iniciar uma avaliação EDM.</p>
-                        <a href="cadastrar_pacientes.php" class="botao-adicionar">Adicionar paciente</a>
+                        <h2>Nenhuma avaliação por aqui ainda</h2>
+                        <p>Adicione sua primeira avaliação.</p>
+                        <a href="cadastrar_teste.php" class="botao-adicionar">Adicionar avaliação</a>
                     </div>
                 <?php } else { ?>
                     <div class="lista-pacientes" id="listaPacientes">

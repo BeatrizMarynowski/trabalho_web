@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'
                     <p class="subtitulo">Preencha as informações para adicionar uma nova criança.</p>
                     <form method="POST" action="" id="formCadastro" class="cadastro-form">
                         <div class="campo">
-                            <label for="nome">Nome completo *</label>
+                            <label for="nome">Nome *</label>
                             <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
                         </div>
                         <div class="campo">
@@ -111,15 +111,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['nome'] != "" && $_POST['cpf'
                             <textarea id="observacoes" name="observacoes" placeholder="Adicione informações importantes sobre o paciente..." rows="4"></textarea>
                         </div>
                         <div class="campo">
-                            <label for="cpf_pai">cpf - responsavel *</label>
+                            <label for="cpf_pai">CPF - Responsável *</label>
                             <input type="text" id="cpf_pai" name="cpf_pai" required>
                         </div>
                         <div class="campo">
-                            <label for="nome_pai">nome_pai *</label>
-                            <input type="tex" id="nome_pai" name="nome_pai" required>
+                            <label for="nome_pai">Nome - Responsável *</label>
+                            <input type="text" id="nome_pai" name="nome_pai" required>
                         </div>
                         <div class="campo">
-                            <label for="telefone_pai">Telefone do pai *</label>
+                            <label for="telefone_pai">Telefone - Responsável *</label>
                             <input type="text" id="telefone_pai" name="telefone_pai" required>
                         </div>
                         <button type="submit" class="botao-cadastrar">

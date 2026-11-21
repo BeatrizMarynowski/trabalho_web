@@ -131,15 +131,18 @@ a {
 }
 
 /* CABEÇALHO DA TABELA */
+.tabela-cabecalho,
+.paciente-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.7fr;
+    align-items: center;
+    gap: 15px;
+    padding-left: 28px;
+    padding-right: 28px;
+}
 
 .tabela-cabecalho {
     min-height: 47px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
-    align-items: center;
-    gap: 15px;
-    padding: 0 28px;
-
     border-bottom: 1px solid #f0dce9;
     color: var(--roxo);
     font-size: 12px;
@@ -147,16 +150,10 @@ a {
     text-transform: uppercase;
 }
 
-/* LINHAS */
-
 .paciente-linha {
     min-height: 75px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 28px;
-
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #f5edf4;
     color: var(--texto-suave);
     font-size: 13px;
@@ -206,6 +203,19 @@ a {
     padding: 30px;
     text-align: center;
     color: var(--texto-suave);
+}
+
+
+.historico-topo {
+    margin-top: 22px;
+}
+
+.historico-topo h2 {
+    font-family: inherit;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--roxo);
+    margin: 0;
 }
 
 /* ESTADO VAZIO */
