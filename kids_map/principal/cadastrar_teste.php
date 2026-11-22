@@ -52,9 +52,9 @@ $areas = [
     "Motricidade Fina",
     "Motricidade Global",
     "Equilíbrio",
-    "Esquema Corporal",
+    "Esquema Corporal / Rapidez",
     "Organização Espacial",
-    "Organização Temporal",
+    "Organização Temporal / Linguagem",
 ];
 ?>
 <!DOCTYPE html>
@@ -95,6 +95,7 @@ $areas = [
         </aside>
 
         <main class="conteudo">
+              <a href="teste.php" class="voltar"><i class="bi bi-arrow-left"></i>Voltar para avaliações</a>
             <header class="pagina-topo">
                 <div>
                     <h1>Nova avaliação</h1>
@@ -151,7 +152,6 @@ $areas = [
                 </section>
 
                 <div class="form-acoes">
-                    <a href="teste.php" class="botao-voltar">Voltar</a>
                     <button type="submit" class="botao-salvar">Salvar avaliação</button>
                 </div>
             </form>

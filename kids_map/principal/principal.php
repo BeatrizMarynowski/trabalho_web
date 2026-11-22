@@ -139,5 +139,6 @@ $testes->close();
             </section>
      
         </main>
+         <script src="../assets/javascript/principal/pacientes.js"></script>
     </body>
 </html>

@@ -120,6 +120,7 @@ $totalPacientes = $resultado->num_rows;
                                 <span>
                                     <?php echo htmlspecialchars($p['nascimento']); ?>
                                 </span>
+                              
                             </div>
                         <?php } ?>
                     </div>
