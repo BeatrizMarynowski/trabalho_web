@@ -18,6 +18,24 @@ foreach ($partesNome as $parte) {
 $iniciais = substr($iniciais, 0, 2);
 
 
+
+
+$idavaliacao = $_GET['id'] ?? null;
+$cpfpassado = $_GET['cpf'] ?? null;
+$acao = $_GET['acao'] ?? '';
+if ($acao === 'excluir' && $idavaliacao && $cpfpassado) {
+    try {
+        $deletar = $mysqli->prepare("DELETE FROM exame WHERE avaliaçao_id = ? AND paciente_cpf = ? AND profissional_email = ?");
+        $deletar->bind_param("iss", $idavaliacao, $cpfpassado, $emailprofissional);
+        $deletar->execute();
+        $deletar->close();
+
+        header("Location: teste.php?sucesso=excluido");
+        exit;
+    } catch (Exception $e) {
+        $erroExclusao = $e->getMessage();
+    }
+}
 $im1 = 0;
 $im2 = 0;
 $im3 = 0;
@@ -27,8 +45,6 @@ $im6 = 0;
 
 $soma = 0;
 
-$idavaliacao = $_GET['id'];
-$cpfpassado = $_GET['cpf'];
 $consulta = $mysqli->prepare("
     SELECT e.avaliaçao_id, e.atividade_id, e.data, e.resultado, p.nome, p.nome_pai, p.nascimento
     FROM exame e
@@ -51,7 +67,6 @@ while ($celula = $resultado->fetch_assoc()) {
     $idatividade = (int) $celula['atividade_id'];
     $valor = (float) $celula['resultado'];
 
-    // Define a pontuação
     if ($valor == 1) {
         $soma = 12;
     } else if ($valor == 5) {
@@ -93,10 +108,43 @@ if ($resultadocerto) {
     $idadenum = "";
 }
 
-$img = ($im1 + $im2 + $im3 + $im4 + $im5 + $im6) / 6;
-$img = round($img, 2);
-$qmg = ($ic > 0) ? round(($img / $ic) * 100, 2) : 0;
-$ipin = $img - $ic;
+if ($idavaliacao !== null || $cpfpassado !== null){
+    $img = ($im1 + $im2 + $im3 + $im4 + $im5 + $im6) / 6;
+    $img = round($img, 2);
+    $qmg = round(($img / $ic) * 100, 2);
+    $ipin = $img - $ic;
+
+    $qm1 = round(($im1 / $ic) * 100, 2);
+    $qm2 = round(($im2 / $ic) * 100, 2);
+    $qm3 = round(($im3 / $ic) * 100, 2);
+    $qm4 = round(($im4 / $ic) * 100, 2);
+    $qm5 = round(($im5 / $ic) * 100, 2);
+    $qm6 = round(($im6 / $ic) * 100, 2);
+
+    $diff1 = $im1 - $ic;
+    $diff2 = $im2 - $ic;
+    $diff3 = $im3 - $ic;
+    $diff4 = $im4 - $ic;
+    $diff5 = $im5 - $ic;
+    $diff6 = $im6 - $ic;
+
+    if ($qmg >= 130){
+        $escala = "Muito Superior";
+    }else if ($qmg >= 120){
+        $escala = "Superior";
+    }else if ($qmg >= 110){
+        $escala = "Normal Alto";
+    }else if ($qmg >= 90){
+        $escala = "Normal Médio";
+    }else if ($qmg >= 80){
+        $escala = "Normal Baixo";
+    }else if ($qmg >= 70){
+        $escala = "Inferior";
+    }else if ($qmg < 70){
+        $escala = "Muito Inferior";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -171,6 +219,11 @@ $ipin = $img - $ic;
                 <div class="nome-crianca">
                     <span class="legenda">PACIENTE</span>
                     <h2><?php echo $resultadocerto['nome']?></h2>
+                    </div>
+                    <div class="classificacao-qmg">
+                        <span>Classificação</span>
+                        <strong><?php echo $escala?></strong>
+                    </div>
                 </div>
             </div>
             <div class="dados-crianca">
@@ -254,7 +307,7 @@ $ipin = $img - $ic;
                         <tr>
                             <th>Área avaliada</th>
                             <th>Idade motora</th>
-                            <th>Idade cronológica</th>
+                            <th>quociente motor</th>
                             <th>Diferença</th>
                         </tr>
                     </thead>
@@ -262,38 +315,38 @@ $ipin = $img - $ic;
                         <tr>
                             <td>Motricidade fina</td>
                             <td><?php echo $im1?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-25 meses</span></td>
+                            <td><?php echo $qm1?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff1?> meses</span></td>
                         </tr>
                         <tr>
                             <td>Motricidade global</td>
                             <td><?php echo $im2?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-15 meses</span></td>
+                            <td><?php echo $qm2?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff2?> meses</span></td>
                         </tr>
                         <tr>
                             <td>Equilíbrio</td>
                             <td><?php echo $im3?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-5 meses</span></td>
+                            <td><?php echo $qm3?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff3?> meses</span></td>
                         </tr>
                         <tr>
                             <td>Esquema corporal</td>
                             <td><?php echo $im4?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-10 meses</span></td>
+                            <td><?php echo $qm4?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff4?> meses</span></td>
                         </tr>
                         <tr>
                             <td>Organização espacial</td>
                             <td><?php echo $im5?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-21 meses</span></td>
+                            <td><?php echo $qm5?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff5?> meses</span></td>
                         </tr>
                         <tr>
                             <td>Organização temporal</td>
                             <td><?php echo $im6?> meses</td>
-                            <td><?php echo $ic?> meses</td>
-                            <td><span class="resultado-negativo">-12 meses</span></td>
+                            <td><?php echo $qm6?> meses</td>
+                            <td><span class="resultado-negativo"><?php echo $diff6?> meses</span></td>
                         </tr>
                     </tbody>
                 </table>

@@ -20,7 +20,7 @@ $iniciais = substr($iniciais, 0, 2);
 
 
 $consulta = $mysqli->prepare("
-    SELECT DISTINCT e.avaliaçao_id AS id, p.nome, p.cpf
+    SELECT DISTINCT e.avaliaçao_id AS id, e.data, p.nome_pai, p.nome, p.cpf, p.nascimento
     FROM paciente p
     JOIN exame e ON p.cpf = e.paciente_cpf
     WHERE e.profissional_email = ?
@@ -30,6 +30,8 @@ $consulta->execute();
 $resultado = $consulta->get_result();
 $totaltestes = $resultado->num_rows;
 $consulta->close();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -99,9 +101,9 @@ $consulta->close();
             <section class="area-pacientes">
                 <div class="tabela-cabecalho">
                     <span>Paciente</span>
-                    <span>Sexo</span>
-                    <span>Nascimento</span>
-                    <span>Classificação</span>
+                    <span>idade</span>
+                    <span>nome do responsavel</span>
+                    <span>data do exame</span>
                 </div>
                 <?php if ($totaltestes === 0) { ?>
                     <div class="estado-vazio">
@@ -115,7 +117,16 @@ $consulta->close();
                     </div>
                 <?php } else { ?>
                     <div class="lista-pacientes" id="listaPacientes">
-                        <?php while ($p = $resultado->fetch_assoc()) { ?>
+                        <?php while ($p = $resultado->fetch_assoc()) { 
+                            $datanas = new DateTime($p['nascimento']);
+                            $dataexame = new DateTime($p['data']);
+
+                            $idade = $dataexame->diff($datanas);
+
+                            $datanas = $datanas->format('d/m/Y');
+                            $dataexame = $dataexame->format('d/m/Y');
+                            $idadenum = $idade->format('%y anos');?>  
+
                             <a href="relatorio.php?id=<?php echo (int) $p['id']; ?>&cpf=<?php echo urlencode($p['cpf']); ?>" class="paciente-linha" data-nome="<?php echo htmlspecialchars($p['nome']); ?>">
                                 <div class="paciente-nome">
                                     <div class="paciente-avatar">
@@ -126,11 +137,15 @@ $consulta->close();
                                     </strong>
                                 </div>
                                 <span>
-                                    <?php echo htmlspecialchars($p['id']); ?>
+                                    <?php echo $idadenum?>
                                 </span>
                                 <span>
-                                    <?php echo htmlspecialchars($p['nome']); ?>
+                                    <?php echo htmlspecialchars($p['nome_pai']); ?>
                                 </span>
+                                <span>
+                                    <?php echo $dataexame?>
+                                </span>
+                                
                             </a>
                         <?php } ?>
                     </div>

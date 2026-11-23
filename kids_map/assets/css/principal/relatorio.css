@@ -269,7 +269,43 @@ button {
     font-size: 10px;
     color: var(--texto-suave);
 }
+.classificacao-qmg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 12px 18px;
+    min-width: 155px;
+    background: #eef8fd;
+    border: 1px solid #c9e8f8;
+    border-radius: 12px;
+}
+.identificacao-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
 
+.classificacao-qmg {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.classificacao-qmg span {
+    color: #587b8e;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.classificacao-qmg strong {
+    color: #067BC2;
+    font-size: 16px;
+    font-weight: 700;
+}
 .rosa strong,
 .rosa i {
     color: var(--rosa);
@@ -279,7 +315,10 @@ button {
 .roxo i {
     color: var(--roxo);
 }
-
+/* BOTÃO VOLTAR - OCULTO NO COMPUTADOR */
+.voltar {
+    display: none;
+}
 .azul strong,
 .azul i {
     color: var(--azul);
@@ -352,6 +391,10 @@ button {
         padding: 22px 16px;
     }
 
+    .voltar {
+        display: inline-flex;
+        margin-bottom: 20px;
+    }
     .topo-relatorio {
         align-items: flex-start;
         flex-direction: column;
@@ -396,7 +439,22 @@ button {
     .card-indicador p {
         font-size: 11px;
     }
+    
+    .identificacao-principal {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .classificacao-qmg {
+        width: 100%;
+        min-width: unset;
+        margin-left: 0;
+    }
 }
+
+
+
 
 /* IMPRESSÃO */
 

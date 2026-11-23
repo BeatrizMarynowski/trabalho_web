@@ -144,13 +144,13 @@ $areas = [
                                             <td>
                                                 <select name="resultado[<?php echo $atividade; ?>]" aria-label="<?php echo $nomeArea; ?> - atividade <?php echo $atividade; ?>">
                                                     
-                                                    <option value="1">1</option>
+                                                    <option value="0">0</option>
                                                     <?php if ($atividade == 5 || $atividade == 6 ||$atividade == 7 ||$atividade == 8 ||$atividade == 10 
                                                     ||$atividade == 16
                                                     ||$atividade == 22 ||$atividade == 25 ||$atividade == 26 ||$atividade == 30) { ?>
                                                         <option value="0.5">0,5</option>
-                                                    <?php } ?>
-                                                    <option value="0">0</option>
+                                                        <?php } ?>
+                                                    <option value="1">1</option>
                                                 </select>
                                             </td>
                                         <?php } ?>

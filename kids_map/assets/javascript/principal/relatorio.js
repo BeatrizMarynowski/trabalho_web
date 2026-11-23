@@ -1,10 +1,11 @@
-
 function confirmarExclusao() {
-    const confirmar = confirm(
-        "Tem certeza de que deseja excluir este relatório? Esta ação não poderá ser desfeita."
-    );
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const cpf = urlParams.get('cpf');
 
- 
+    if (confirm("Tem certeza de que deseja excluir esta avaliação?")) {
+        window.location.href = `relatorio.php?id=${id}&cpf=${cpf}&acao=excluir`;
+    }
 }
 const menuToggle = document.querySelector(".menu-toggle");
 const sidebar = document.querySelector(".sidebar");

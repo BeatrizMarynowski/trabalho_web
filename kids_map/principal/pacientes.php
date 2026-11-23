@@ -19,11 +19,12 @@ $iniciais = substr($iniciais, 0, 2);
 
 
 
-$consulta = $mysqli->prepare("SELECT DISTINCT p.cpf, p.nome, p.nascimento, p.observacoes FROM paciente p JOIN acompanhamento a ON a.paciente_cpf = p.cpf WHERE a.profissional_email = ? ORDER BY p.nome");
+$consulta = $mysqli->prepare("SELECT DISTINCT p.cpf, p.nome, p.nome_pai, p.nascimento, p.observacoes FROM paciente p JOIN acompanhamento a ON a.paciente_cpf = p.cpf WHERE a.profissional_email = ? ORDER BY p.nome");
 $consulta->bind_param("s", $emailprofissional);
 $consulta->execute();
 $resultado = $consulta->get_result();
 $totalPacientes = $resultado->num_rows;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -88,7 +89,7 @@ $totalPacientes = $resultado->num_rows;
             <section class="area-pacientes">
                 <div class="tabela-cabecalho">
                     <span>Paciente</span>
-                    <span>Sexo</span>
+                    <span>cpf</span>
                     <span>Nascimento</span>
                     <span>Nome do Responsável</span>
                 </div>
@@ -105,6 +106,8 @@ $totalPacientes = $resultado->num_rows;
                 <?php } else { ?>
                     <div class="lista-pacientes" id="listaPacientes">
                         <?php while ($p = $resultado->fetch_assoc()) { ?>
+                            <?php $datanas = new DateTime($p['nascimento']);
+                            $datanas = $datanas->format('d/m/Y');?>
                             <div class="paciente-linha" data-nome="<?php echo htmlspecialchars($p['nome']); ?>">
                                 <div class="paciente-nome">
                                     <div class="paciente-avatar">
@@ -118,7 +121,10 @@ $totalPacientes = $resultado->num_rows;
                                     <?php echo htmlspecialchars($p['cpf']); ?>
                                 </span>
                                 <span>
-                                    <?php echo htmlspecialchars($p['nascimento']); ?>
+                                    <?php echo htmlspecialchars($datanas); ?>
+                                </span>
+                                <span>
+                                    <?php echo htmlspecialchars($p['nome_pai']); ?>
                                 </span>
                               
                             </div>
