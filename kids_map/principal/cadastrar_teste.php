@@ -37,7 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $consulta = $mysqli->prepare("INSERT INTO exame (profissional_email, paciente_cpf, atividade_id, data, resultado, avaliaçao_id)VALUES (?, ?, ?, CURDATE(), ?, ?)");
         foreach ($_POST['resultado'] as $atividadeId => $resultado) {
-            $consulta->bind_param("ssiii", $emailprofissional, $cpf, $atividadeId, $resultado, $avaliacaoid);
+            if ($resultado === "0.5") {
+                $resultadobanco = 5;
+            } else {
+                $resultadobanco = $resultado;
+            }
+            $consulta->bind_param("ssiii", $emailprofissional, $cpf, $atividadeId, $resultadobanco, $avaliacaoid);
             $consulta->execute();
         }
         $consulta->close();
@@ -79,7 +84,7 @@ $areas = [
             <nav class="sidebar-menu">
                 <a class="nav-link" href="principal.php"><i class="bi bi-house"></i><span>Início</span></a>
                 <a class="nav-link" href="pacientes.php"><i class="bi bi-people"></i><span>Pacientes</span></a>
-                <a class="nav-link ativo" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
+                <a class="nav-link" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
             </nav>
             <div class="sidebar-inferior">
                 <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
@@ -140,6 +145,11 @@ $areas = [
                                                 <select name="resultado[<?php echo $atividade; ?>]" aria-label="<?php echo $nomeArea; ?> - atividade <?php echo $atividade; ?>">
                                                     
                                                     <option value="1">1</option>
+                                                    <?php if ($atividade == 5 || $atividade == 6 ||$atividade == 7 ||$atividade == 8 ||$atividade == 10 
+                                                    ||$atividade == 16
+                                                    ||$atividade == 22 ||$atividade == 25 ||$atividade == 26 ||$atividade == 30) { ?>
+                                                        <option value="0.5">0,5</option>
+                                                    <?php } ?>
                                                     <option value="0">0</option>
                                                 </select>
                                             </td>

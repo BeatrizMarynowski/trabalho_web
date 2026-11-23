@@ -20,7 +20,7 @@ $iniciais = substr($iniciais, 0, 2);
 
 
 $consulta = $mysqli->prepare("
-    SELECT DISTINCT e.avaliaçao_id AS id, p.nome
+    SELECT DISTINCT e.avaliaçao_id AS id, p.nome, p.cpf
     FROM paciente p
     JOIN exame e ON p.cpf = e.paciente_cpf
     WHERE e.profissional_email = ?
@@ -116,7 +116,7 @@ $consulta->close();
                 <?php } else { ?>
                     <div class="lista-pacientes" id="listaPacientes">
                         <?php while ($p = $resultado->fetch_assoc()) { ?>
-                            <div class="paciente-linha" data-nome="<?php echo htmlspecialchars($p['nome']); ?>">
+                            <a href="relatorio.php?id=<?php echo (int) $p['id']; ?>&cpf=<?php echo urlencode($p['cpf']); ?>" class="paciente-linha" data-nome="<?php echo htmlspecialchars($p['nome']); ?>">
                                 <div class="paciente-nome">
                                     <div class="paciente-avatar">
                                         <?php echo strtoupper(substr($p['nome'], 0, 1)); ?>
@@ -131,7 +131,7 @@ $consulta->close();
                                 <span>
                                     <?php echo htmlspecialchars($p['nome']); ?>
                                 </span>
-                            </div>
+                            </a>
                         <?php } ?>
                     </div>
                     <p class="nenhum-resultado" id="nenhumResultado">Nenhum paciente encontrado.</p>
