@@ -111,6 +111,11 @@ $iniciais = substr($iniciais, 0, 2);
                     <h2>Ana Maria Silva</h2>
    
                 </div>
+                     <div class="classificacao-qmg">
+                    <span>Classificação</span>
+                    <strong>Normal médio</strong>
+                </div>
+                
 
             </div>
 
@@ -197,6 +202,8 @@ $iniciais = substr($iniciais, 0, 2);
                     <p>Idade Positiva / Idade Negativa</p>
                 
                 </div>
+
+             
 
             </div>
 
