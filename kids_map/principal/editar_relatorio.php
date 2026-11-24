@@ -17,32 +17,51 @@ foreach ($partesNome as $parte) {
 }
 $iniciais = substr($iniciais, 0, 2);
 
+$avaliacaoid = $_GET['id'];
+
+$consulta = $mysqli->prepare("
+    SELECT e.atividade_id, e.resultado, e.paciente_cpf, p.nome
+    FROM exame e
+    JOIN paciente p ON p.cpf = e.paciente_cpf
+    WHERE e.avaliaçao_id = ? AND e.profissional_email = ?
+");
+$consulta->bind_param("is", $avaliacaoid, $emailprofissional);
+$consulta->execute();
+$valor = $consulta->get_result();
+
+$respostas = [];
+
+$resultadocerto = null;
+
+while ($linha = $valor->fetch_assoc()) {
+    if ($resultadocerto === null) {
+        $resultadocerto = $linha;
+    }
+    $idativ = $linha['atividade_id'];
+    $resp = $linha['resultado'];
+    
+    if ($resp == 5) {
+        $respostas[$idativ] = "0.5";
+    } else {
+        $respostas[$idativ] = (string)$resp;
+    }
+}
+$consulta->close();
 
 
-$pacientes = $mysqli->prepare("SELECT DISTINCT p.cpf, p.nome FROM paciente p JOIN acompanhamento a ON a.paciente_cpf = p.cpf WHERE a.profissional_email = ? ORDER BY p.nome");
-$pacientes->bind_param("s", $emailprofissional);
-$pacientes->execute();
-$pacientes_resultado = $pacientes->get_result();
-$pacientes->close();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $cpf = $_POST['cpf'];
-    $classificacao = 0;
-    try {
-        $avaliacao = $mysqli->prepare("UPDATE INTO avaliaçao (classificacao) VALUES (?)");
-        $avaliacao->bind_param("i", $classificacao);
-        $avaliacao->execute();
-        $avaliacaoid = $mysqli->insert_id;
-        $avaliacao->close();
+    $cpf = $resultadocerto['paciente_cpf'];
 
-        $consulta = $mysqli->prepare("INSERT INTO exame (profissional_email, paciente_cpf, atividade_id, data, resultado, avaliaçao_id)VALUES (?, ?, ?, CURDATE(), ?, ?)");
+    try {
+        $consulta = $mysqli->prepare("UPDATE exame SET resultado = ? WHERE avaliaçao_id = ? AND atividade_id = ? AND profissional_email = ?");
         foreach ($_POST['resultado'] as $atividadeId => $resultado) {
             if ($resultado === "0.5") {
                 $resultadobanco = 5;
             } else {
                 $resultadobanco = $resultado;
             }
-            $consulta->bind_param("ssiii", $emailprofissional, $cpf, $atividadeId, $resultadobanco, $avaliacaoid);
+            $consulta->bind_param("iiis", $resultadobanco, $avaliacaoid, $atividadeId, $emailprofissional);
             $consulta->execute();
         }
         $consulta->close();
@@ -87,7 +106,7 @@ $areas = [
                 <a class="nav-link" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
             </nav>
             <div class="sidebar-inferior">
-                <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
+                <a href="./logout.php" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
                 <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
             </div>
             <div class="sidebar-conta">
@@ -103,7 +122,7 @@ $areas = [
               <a href="teste.php" class="voltar"><i class="bi bi-arrow-left"></i>Voltar para avaliações</a>
             <header class="pagina-topo">
                 <div>
-                    <h1>Nova avaliação</h1>
+                    <h1>Editar avaliação</h1>
                     <p>Selecione o paciente e preencha o resultado de cada atividade.</p>
                 </div>
             </header>
@@ -112,14 +131,7 @@ $areas = [
                 <section class="card-form">
                     <div class="campo">
                         <label for="cpf">Paciente</label>
-                        <select id="cpf" name="cpf" required>
-                            <option value="">Selecione...</option>
-                            <?php
-                            foreach ($pacientes_resultado as $opcoes) {
-                                echo "<option value='" . $opcoes['cpf'] . "'>" . $opcoes['nome'] . " (" . $opcoes['cpf'] . ")" . "</option>";
-                            }
-                            ?>
-                        </select>
+                        <p><?php echo $resultadocerto['nome']?></p>
                     </div>
                 </section>
 
@@ -140,17 +152,15 @@ $areas = [
                                     <tr>
                                         <td class="area-nome"><?php echo $nomeArea; ?></td>
                                         <?php for ($coluna = 0; $coluna < 10; $coluna++) {
-                                            $atividade = $linha * 10 + $coluna + 1; ?>
+                                            $atividade = $linha * 10 + $coluna + 1; 
+                                            $valor = $respostas[$atividade]; ?>
                                             <td>
-                                                <select name="resultado[<?php echo $atividade; ?>]" aria-label="<?php echo $nomeArea; ?> - atividade <?php echo $atividade; ?>">
-                                                    
-                                                    <option value="1">1</option>
-                                                    <?php if ($atividade == 5 || $atividade == 6 ||$atividade == 7 ||$atividade == 8 ||$atividade == 10 
-                                                    ||$atividade == 16
-                                                    ||$atividade == 22 ||$atividade == 25 ||$atividade == 26 ||$atividade == 30) { ?>
-                                                        <option value="0.5">0,5</option>
+                                                <select name="resultado[<?php echo $atividade; ?>]">
+                                                    <option value="1" <?php echo ($valor === "1") ? 'selected' : ''; ?>>1</option>
+                                                    <?php if (in_array($atividade, [5, 6, 7, 8, 10, 16, 22, 25, 26, 30])) { ?>
+                                                        <option value="0.5" <?php echo ($valor === "0.5") ? 'selected' : ''; ?>>0,5</option>
                                                     <?php } ?>
-                                                    <option value="0">0</option>
+                                                    <option value="0" <?php echo ($valor === "0") ? 'selected' : ''; ?>>0</option>
                                                 </select>
                                             </td>
                                         <?php } ?>

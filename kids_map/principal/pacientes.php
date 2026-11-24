@@ -51,7 +51,7 @@ $totalPacientes = $resultado->num_rows;
                 <a class="nav-link" href="teste.php"><i class="bi bi-clipboard-check"></i><span>Avaliações</span></a>
             </nav>
             <div class="sidebar-inferior">
-                <a href="../index.html" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
+                <a href="./logout.php" class="nav-link sair"><i class="bi bi-box-arrow-right"></i><span>Sair</span></a>
                 <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Ajuda</span></a>
             </div>
             <div class="sidebar-conta">
