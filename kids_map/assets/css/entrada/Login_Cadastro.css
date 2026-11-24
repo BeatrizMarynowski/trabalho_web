@@ -78,9 +78,6 @@ form {
     height: auto;
     object-fit: contain;
 }
-
-
-
 /* LINHA DECORATIVA */
 
 .login-divisor {
@@ -149,10 +146,6 @@ input:focus {
 input::placeholder {
     color: #a69aaa;
 }
-
-/* VALIDAÇÃO DOS CAMPOS */
-
-
 
 /* MENSAGENS DE ERRO */
 

@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
             <div class="login-separador">♡</div>
             <small>Seus dados estão protegidos de acordo com a LGPD.</small>
-            <small>Não tem conta?<a href="cadastro.php">Cadastre-se</a></small>
+            <small>Não tem conta?<a href="cadastro.php"> Cadastre-se</a></small>
             <small><a href="#">Esqueceu sua senha?</a></small>
         </form>
         <script src="../assets/javascript/entrada/login.js"></script>

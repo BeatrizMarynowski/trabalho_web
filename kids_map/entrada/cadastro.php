@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['em
       <input type="submit" value="Enviar">
       <small>Seus dados estão protegidos de acordo com a LGPD</small>
       <?php if ($erro != "") { echo "<p>$erro</p>"; } ?>
-      <small>Não tem conta?<a href="login.php">Cadastre-se</a></small>
+      <small>Já tem conta?<a href="login.php"> Faça login</a></small>
     </form>
     <script src="../assets/javascript/entrada/cadastro.js"></script>
 

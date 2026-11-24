@@ -49,7 +49,6 @@ img {
     max-width: 100%;
 }
 
-
 /* ==================== LOGO ==================== */
 
 header {
@@ -283,8 +282,6 @@ nav {
     transform: translateX(4px);
 }
 
-
-
 /* ==================== TESTES ==================== */
 
 .testes {
@@ -426,7 +423,6 @@ nav {
     background: var(--rosa-bebe);
 }
 
-
 .section-label {
     display: inline-block;
     margin-bottom: 11px;
@@ -436,7 +432,6 @@ nav {
     font-weight: 800;
     letter-spacing: 0.13em;
 }
-
 
 /* ==================== FOOTER ==================== */
 
@@ -468,9 +463,6 @@ footer {
     font-size: 12px;
 }
 
-
-
-
 .footer-bottom {
     width: min(1180px, 100%);
     margin: 35px auto 0;
@@ -490,8 +482,6 @@ footer {
     background: var(--rosa);
     opacity: 0.4;
 }
-
-
 /* ==================== RESPONSIVIDADE ==================== */
 
 /* ================= TABLET ================= */
@@ -523,10 +513,6 @@ footer {
 .hero-botao {
     margin-top: 55px;
 }
-
-
-
-
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
@@ -678,25 +664,15 @@ footer {
     white-space: nowrap;
 }
 
- 
-
     .botao {
         height: 48px;
         font-size: 13px;
     }
 
-
-
     /* TESTE */
     .testes {
         padding: 80px 6%;
     }
-
-
-
-
-
-
 
     /* FOOTER */
     footer {

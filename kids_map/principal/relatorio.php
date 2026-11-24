@@ -108,9 +108,11 @@ if ($resultadocerto) {
     $idadenum = "";
 }
 
-if ($idavaliacao !== null || $cpfpassado !== null){
+if ($idavaliacao !== null && $cpfpassado !== null && $resultadocerto !== null && $ic > 0) {
+
     $img = ($im1 + $im2 + $im3 + $im4 + $im5 + $im6) / 6;
     $img = round($img, 2);
+
     $qmg = round(($img / $ic) * 100, 2);
     $ipin = $img - $ic;
 
@@ -128,21 +130,43 @@ if ($idavaliacao !== null || $cpfpassado !== null){
     $diff5 = $im5 - $ic;
     $diff6 = $im6 - $ic;
 
-    if ($qmg >= 130){
+    if ($qmg >= 130) {
         $escala = "Muito Superior";
-    }else if ($qmg >= 120){
+    } else if ($qmg >= 120) {
         $escala = "Superior";
-    }else if ($qmg >= 110){
+    } else if ($qmg >= 110) {
         $escala = "Normal Alto";
-    }else if ($qmg >= 90){
+    } else if ($qmg >= 90) {
         $escala = "Normal Médio";
-    }else if ($qmg >= 80){
+    } else if ($qmg >= 80) {
         $escala = "Normal Baixo";
-    }else if ($qmg >= 70){
+    } else if ($qmg >= 70) {
         $escala = "Inferior";
-    }else if ($qmg < 70){
+    } else {
         $escala = "Muito Inferior";
     }
+
+} else {
+
+    $img = 0;
+    $qmg = 0;
+    $ipin = 0;
+
+    $qm1 = 0;
+    $qm2 = 0;
+    $qm3 = 0;
+    $qm4 = 0;
+    $qm5 = 0;
+    $qm6 = 0;
+
+    $diff1 = 0;
+    $diff2 = 0;
+    $diff3 = 0;
+    $diff4 = 0;
+    $diff5 = 0;
+    $diff6 = 0;
+
+    $escala = "Não calculado";
 }
 
 ?>

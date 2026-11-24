@@ -1,6 +1,8 @@
+
 :root {
     --rosa-bebe: #FDF3F9;
     --rosa: #BF5F7D;
+    --rosa-claro: #f9e5f3;
     --roxo: #744D80;
     --roxo-escuro: #5f3e69;
     --azul: #067BC2;
@@ -450,6 +452,10 @@ button {
         margin-left: 0;
     }
 }
+
+
+
+
 /* IMPRESSÃO */
 
 @media print {

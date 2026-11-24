@@ -90,9 +90,6 @@ select:focus {
     max-width: 500px;
 }
 
-
-
-
 /* BOTÕES */
 
 .form-acoes {
@@ -116,9 +113,6 @@ select:focus {
     cursor: pointer;
     transition: 0.3s ease;
 }
-
-
-
 .botao-salvar {
     color: white;
     background: var(--rosa);
