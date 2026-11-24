@@ -2,10 +2,11 @@
 include '../configdb.php';
 
 $erro = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['email'] != "" &&  $_POST['crefito'] != "" &&  $_POST['senha'] != "") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['email'] != "" &&  $_POST['crefito'] != "" &&  $_POST['senha'] != "" &&  $_POST['tipocrefito'] != "") {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $crefito = $_POST['crefito'];
+    $crefito = $crefito . "-" . $_POST['tipocrefito'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     try {
         $consulta = $mysqli->prepare("INSERT INTO profissional (nome, email, crefito, senha) VALUES (?,?,?,?)");
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&  $_POST['nome'] != "" &&  $_POST['em
         <label for="crefito">CREFITO:</label>
         <div style="display: flex; gap: 8px;">
           <input type="text" id="crefito" name="crefito" placeholder="Ex: 123456" maxlength="6">
-          <select id="tipoCrefito" name="tipoCrefito">
+          <select id="tipocrefito" name="tipocrefito">
             <option value="F">F (Fisioterapia)</option>
             <option value="TO">TO (Terapia Ocupacional)</option>
           </select>
