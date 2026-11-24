@@ -2,7 +2,6 @@
     --rosa-bebe: #FDF3F9;
     --rosa: #BF5F7D;
     --roxo: #744D80;
-    --roxo-bebe: #f7e7fc;
     --roxo-escuro: #5f3e69;
     --texto: #35283a;
     --texto-suave: #8d8191;
@@ -161,11 +160,6 @@
     text-overflow: ellipsis;
 }
 
-.conta-seta {
-    margin-left: auto;
-    color: var(--roxo);
-    font-size: 20px;
-}
 .sidebar a,
 .sidebar a:hover,
 .sidebar a:focus,

@@ -1,9 +1,7 @@
-
 :root {
     --rosa-bebe: #FDF3F9;
     --rosa: #BF5F7D;
     --roxo: #744D80;
-    --roxo-bebe: #f7e7fc;
     --roxo-escuro: #5f3e69;
     --texto: #35283a;
     --texto-suave: #8d8191;
@@ -258,24 +256,7 @@ body {
     font-size: 11px;
 }
 
-/* MENSAGEM DE ERRO */
 
-.mensagem-erro {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 12px 15px;
-    margin-bottom: 20px;
-
-    background: #fff0f0;
-    color: #b33a48;
-
-    border: 1px solid #f2caca;
-    border-radius: 9px;
-
-    font-size: 13px;
-}
 
 /* RESPONSIVIDADE */
 

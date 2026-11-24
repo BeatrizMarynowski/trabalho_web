@@ -5,10 +5,7 @@
     --roxo: #744D80;
     --roxo-escuro: #5f3e69;
     --azul: #067BC2;
-    --azul-escuro: #05669f;
-    --celeste: #C7EBF0;
 
-    --preto: #000000;
     --texto: #252329;
     --texto-suave: #6f6b73;
     --branco: #ffffff;
@@ -16,9 +13,7 @@
     --fundo-roxo: #f5f0f6;
 
     --sombra: 0 18px 45px rgba(38, 23, 42, 0.10);
-    --sombra-hover: 0 25px 55px rgba(38, 23, 42, 0.17);
 
-    --radius: 24px;
     --transition: 0.3s ease;
 }
 
@@ -54,31 +49,6 @@ img {
     max-width: 100%;
 }
 
-
-/* ==================== NAVBAR ==================== */
-
-
-.test-card {
-    max-width: 680px;   /* era 420px */
-    min-height: auto;
-}
-
-.card-areas {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.card-areas li {
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: var(--fundo-roxo);
-    color: var(--roxo);
-    font-size: 12px;
-    font-weight: 700;
-}
 
 /* ==================== LOGO ==================== */
 
@@ -253,22 +223,7 @@ nav {
     line-height: 1.70;
 }
 
-.hero-image {
-    flex: 1;
-    margin: 0;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.hero-image img {
-    display: block;
-    width: 100%;
-    max-width: 520px;
-    height: auto;
-    border-radius: 0;
-}
 
 .hero-botao {
     display: flex;
@@ -471,11 +426,6 @@ nav {
     background: var(--rosa-bebe);
 }
 
-.section-heading {
-    width: min(700px, 100%);
-    margin: 0 auto 58px;
-    text-align: center;
-}
 
 .section-label {
     display: inline-block;
@@ -486,157 +436,6 @@ nav {
     font-weight: 800;
     letter-spacing: 0.13em;
 }
-
-.section-heading h2,
-.about-content h2 {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 42px;
-    line-height: 1.15;
-    letter-spacing: -0.045em;
-}
-
-.section-heading h2 span,
-.about-content h2 span {
-    color: var(--roxo);
-}
-
-.section-heading p {
-    width: 100%;
-    max-width: 540px;
-    margin: 15px auto 0;
-
-    color: var(--texto-suave);
-    font-size: 15px;
-}
-
-.cards-container {
-    width: min(1120px, 100%);
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 24px;
-}
-
-.test-card {
-    width: 100%;
-    max-width: 420px;
-    min-height: 380px;
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    padding: 29px;
-
-    background: var(--branco);
-    border: 1px solid #eee9ef;
-    border-radius: var(--radius);
-
-    box-shadow: 0 12px 35px rgba(38, 23, 42, 0.06);
-
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.test-card::before {
-    content: "";
-    width: 115px;
-    height: 115px;
-
-    position: absolute;
-    right: -50px;
-    top: -50px;
-
-    border-radius: 50%;
-    opacity: 0.10;
-
-    transition: 0.35s ease;
-}
-
-.test-card:hover {
-    transform: translateY(-9px);
-    box-shadow: var(--sombra-hover);
-}
-
-.test-card:hover::before {
-    transform: scale(1.45);
-}
-
-.card-pink::before   { background: var(--rosa); }
-.card-purple::before { background: var(--roxo); }
-.card-blue::before   { background: var(--azul); }
-
-.card-content {
-    margin-top: 39px;
-}
-
-.card-label {
-    color: #aaa4ac;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-}
-
-.card-content h3 {
-    margin-top: 4px;
-
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 42px;
-    line-height: 1;
-    letter-spacing: -0.05em;
-}
-
-.card-pink h3   { color: var(--rosa); }
-.card-purple h3 { color: var(--roxo); }
-.card-blue h3   { color: var(--azul); }
-
-.card-line {
-    width: 36px;
-    height: 3px;
-    margin: 19px 0;
-
-    border-radius: 10px;
-}
-
-.card-pink .card-line   { background: var(--rosa); }
-.card-purple .card-line { background: var(--roxo); }
-.card-blue .card-line   { background: var(--azul); }
-
-.card-content p {
-    color: var(--texto-suave);
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.card-link {
-    margin-top: auto;
-    padding-top: 24px;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    transition: var(--transition);
-}
-
-.card-pink .card-link   { color: var(--rosa); }
-.card-purple .card-link { color: var(--roxo); }
-.card-blue .card-link   { color: var(--azul); }
-
-.card-link span {
-    font-size: 19px;
-    transition: var(--transition);
-}
-
-.card-link:hover span {
-    transform: translateX(5px);
-}
-
 
 
 /* ==================== FOOTER ==================== */
@@ -669,21 +468,8 @@ footer {
     font-size: 12px;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: flex-end;
-    gap: 22px;
-}
 
-.footer-links a {
-    color: #c2bcc3;
-    font-size: 12px;
-    transition: var(--transition);
-}
 
-.footer-links a:hover {
-    color: var(--celeste);
-}
 
 .footer-bottom {
     width: min(1180px, 100%);
@@ -738,21 +524,8 @@ footer {
     margin-top: 55px;
 }
 
-.hero-image {
-    flex: none;
-    width: 100%;
-    justify-content: center;
-    margin-top: 45px;
-}
 
-.hero-image img {
-    max-width: 420px;
-    margin: 0 auto;
-}
 
-    .about-section {
-        gap: 50px;
-    }
 
     .footer-content {
         grid-template-columns: 1fr 1fr;
@@ -912,49 +685,18 @@ footer {
         font-size: 13px;
     }
 
-    .hero-image {
-        flex: none;
-        width: 100%;
-        justify-content: center;
-    }
 
-    .hero-image img {
-        max-width: 420px;
-        margin: 0 auto;
-    }
 
     /* TESTE */
     .testes {
         padding: 80px 6%;
     }
 
-    .section-heading {
-        margin-bottom: 40px;
-    }
 
-    .section-heading h2,
-    .about-content h2 {
-        font-size: 32px;
-    }
 
-    .section-heading p {
-        font-size: 13px;
-    }
 
-    .cards-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 17px;
-    }
 
-    .test-card {
-        min-height: 340px;
-        padding: 25px;
-    }
 
-    .card-content {
-        margin-top: 30px;
-    }
 
     /* FOOTER */
     footer {
@@ -971,11 +713,6 @@ footer {
         order: initial;
     }
 
-    .footer-links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
 
     .footer-bottom {
         flex-direction: column;
@@ -1022,7 +759,4 @@ footer {
     width: 50%;
 }
 
-    .test-card {
-        min-height: 325px;
-    }
 }

@@ -183,12 +183,6 @@ input::placeholder {
     font-size: 13px;
 }
 
-#mensagemFinal.sucesso {
-    display: block;
-
-    color: #1b5e20;
-    background: #e8f5e9;
-}
 
 #mensagemFinal.erro-final {
     display: block;

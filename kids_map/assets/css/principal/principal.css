@@ -57,22 +57,6 @@ body {
     line-height: 1.6;
 }
 
-.ilustracao-topo {
-    width: 125px;
-    height: 125px;
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    border-radius: 35px;
-    background: var(--rosa-bebe);
-
-    color: var(--rosa);
-    font-size: 28px;
-}
 .card-atalho {
     text-decoration: none;
     color: inherit;
@@ -228,57 +212,6 @@ body {
     font-size: 19px;
 }
 
-/* DESTAQUE */
-
-.destaque {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    padding: 27px 30px;
-
-    background: #f9eaf3;
-    border: 1px solid #efd5e9;
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.destaque-icone {
-    width: 55px;
-    height: 55px;
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 17px;
-    background: white;
-    color: var(--rosa);
-    font-size: 23px;
-}
-
-.destaque h2 {
-    color: #6c3c70;
-    font-size: 17px;
-}
-
-.destaque p {
-    margin-top: 7px;
-    color: var(--texto-suave);
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.destaque-estrelas {
-    margin-left: auto;
-    color: #c17aa5;
-    font-size: 38px;
-}
-
 /* TABLETS */
 
 @media (max-width: 1000px) and (min-width: 701px) {
@@ -310,9 +243,6 @@ body {
         font-size: 27px;
     }
 
-    .ilustracao-topo {
-        display: none;
-    }
 
     .resumo {
         grid-template-columns: 1fr;
@@ -333,12 +263,5 @@ body {
         min-height: 165px;
     }
 
-    .destaque {
-        padding: 22px 18px;
-        gap: 13px;
-    }
 
-    .destaque-estrelas {
-        display: none;
-    }
 }
