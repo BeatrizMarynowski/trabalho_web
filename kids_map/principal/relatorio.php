@@ -355,7 +355,7 @@ if ($idavaliacao !== null && $cpfpassado !== null && $resultadocerto !== null &&
                             <td><span class="resultado-negativo"><?php echo $diff3?> meses</span></td>
                         </tr>
                         <tr>
-                            <td>Esquema corporal</td>
+                            <td>Esquema corporal / Rapidez/td>
                             <td><?php echo $im4?> meses</td>
                             <td><?php echo $qm4?> meses</td>
                             <td><span class="resultado-negativo"><?php echo $diff4?> meses</span></td>
@@ -367,7 +367,7 @@ if ($idavaliacao !== null && $cpfpassado !== null && $resultadocerto !== null &&
                             <td><span class="resultado-negativo"><?php echo $diff5?> meses</span></td>
                         </tr>
                         <tr>
-                            <td>Organização temporal</td>
+                            <td>Organização temporal / Linguagem</td>
                             <td><?php echo $im6?> meses</td>
                             <td><?php echo $qm6?> meses</td>
                             <td><span class="resultado-negativo"><?php echo $diff6?> meses</span></td>

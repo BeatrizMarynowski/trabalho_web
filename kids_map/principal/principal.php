@@ -125,7 +125,7 @@ $testes->close();
                             <i class="bi bi-arrow-up-right"></i>
                         </span>
                     </a>
-                    <a href="#" class="card-atalho">
+                    <a href="teste.php" class="card-atalho">
                         <div class="atalho-icone azul">
                             <i class="bi bi-clipboard-check-fill"></i>
                         </div>
